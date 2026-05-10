@@ -1,0 +1,354 @@
+version: "3.9"
+
+# ---------------------------------------------------------------------------
+# Networks
+# ---------------------------------------------------------------------------
+networks:
+  ecommerce-net:
+    driver: bridge
+
+# ---------------------------------------------------------------------------
+# Named Volumes
+# ---------------------------------------------------------------------------
+volumes:
+  postgres-data:
+  redis-data:
+  elasticsearch-data:
+  rabbitmq-data:
+  pgadmin-data:
+
+# ---------------------------------------------------------------------------
+# x-common anchors
+# ---------------------------------------------------------------------------
+x-common-env: &common-env
+  ASPNETCORE_ENVIRONMENT: Production
+  DOTNET_RUNNING_IN_CONTAINER: "true"
+
+x-healthcheck-defaults: &hc-defaults
+  interval: 15s
+  timeout: 10s
+  retries: 5
+  start_period: 30s
+
+# ---------------------------------------------------------------------------
+# Services
+# ---------------------------------------------------------------------------
+services:
+
+  # ── Infrastructure ─────────────────────────────────────────────────────
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: ecommerce-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: postgres          # default admin db
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./infra/postgres/init-databases.sh:/docker-entrypoint-initdb.d/init-databases.sh:ro
+    networks:
+      - ecommerce-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
+      <<: *hc-defaults
+
+  redis:
+    image: redis:7-alpine
+    container_name: ecommerce-redis
+    restart: unless-stopped
+    command: redis-server --requirepass ${REDIS_PASSWORD} --appendonly yes
+    volumes:
+      - redis-data:/data
+    networks:
+      - ecommerce-net
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD}", "ping"]
+      <<: *hc-defaults
+
+  rabbitmq:
+    image: rabbitmq:3.13-management-alpine
+    container_name: ecommerce-rabbitmq
+    restart: unless-stopped
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD}
+      RABBITMQ_DEFAULT_VHOST: ${RABBITMQ_VHOST}
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+    networks:
+      - ecommerce-net
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "check_port_connectivity"]
+      <<: *hc-defaults
+
+  elasticsearch:
+    image: elasticsearch:8.13.4
+    container_name: ecommerce-elasticsearch
+    restart: unless-stopped
+    environment:
+      discovery.type: single-node
+      xpack.security.enabled: "false"
+      ES_JAVA_OPTS: "-Xms512m -Xmx512m"
+      ELASTIC_PASSWORD: ${ELASTIC_PASSWORD}
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
+    networks:
+      - ecommerce-net
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s http://localhost:9200/_cluster/health | grep -vq '\"status\":\"red\"'"]
+      <<: *hc-defaults
+
+  kibana:
+    image: kibana:8.13.4
+    container_name: ecommerce-kibana
+    restart: unless-stopped
+    environment:
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+      ELASTICSEARCH_USERNAME: kibana_system
+      ELASTICSEARCH_PASSWORD: ${ELASTIC_PASSWORD}
+    networks:
+      - ecommerce-net
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: ecommerce-pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    networks:
+      - ecommerce-net
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  zipkin:
+    image: openzipkin/zipkin:latest
+    container_name: ecommerce-zipkin
+    restart: unless-stopped
+    networks:
+      - ecommerce-net
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:9411/health || exit 1"]
+      <<: *hc-defaults
+
+  # ── Microservices ────────────────────────────────────────────────────────
+
+  identity-api:
+    image: ${DOCKER_REGISTRY:-ecommerce}/identity-api:${TAG:-latest}
+    container_name: ecommerce-identity-api
+    build:
+      context: .
+      dockerfile: src/Services/Identity/Identity.Api/Dockerfile
+    restart: unless-stopped
+    environment:
+      <<: *common-env
+      ConnectionStrings__DefaultConnection: >-
+        Host=postgres;Port=5432;Database=${IDENTITY_DB};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}
+      ASPNETCORE_URLS: http://+:8080
+    networks:
+      - ecommerce-net
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:8080/health || exit 1"]
+      <<: *hc-defaults
+
+  catalog-api:
+    image: ${DOCKER_REGISTRY:-ecommerce}/catalog-api:${TAG:-latest}
+    container_name: ecommerce-catalog-api
+    build:
+      context: .
+      dockerfile: src/Services/Catalog/Catalog.Api/Dockerfile
+    restart: unless-stopped
+    environment:
+      <<: *common-env
+      ConnectionStrings__DefaultConnection: >-
+        Host=postgres;Port=5432;Database=${CATALOG_DB};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}
+      ConnectionStrings__Redis: redis:6379,password=${REDIS_PASSWORD}
+      ConnectionStrings__RabbitMQ: amqp://${RABBITMQ_USER}:${RABBITMQ_PASSWORD}@rabbitmq:5672/${RABBITMQ_VHOST}
+      Elasticsearch__Url: http://elasticsearch:9200
+      Zipkin__Endpoint: http://zipkin:9411/api/v2/spans
+      ASPNETCORE_URLS: http://+:8080
+    networks:
+      - ecommerce-net
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:8080/health || exit 1"]
+      <<: *hc-defaults
+
+  order-api:
+    image: ${DOCKER_REGISTRY:-ecommerce}/order-api:${TAG:-latest}
+    container_name: ecommerce-order-api
+    build:
+      context: .
+      dockerfile: src/Services/Order/Order.Api/Dockerfile
+    restart: unless-stopped
+    environment:
+      <<: *common-env
+      ConnectionStrings__DefaultConnection: >-
+        Host=postgres;Port=5432;Database=${ORDER_DB};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}
+      ConnectionStrings__Redis: redis:6379,password=${REDIS_PASSWORD}
+      ConnectionStrings__RabbitMQ: amqp://${RABBITMQ_USER}:${RABBITMQ_PASSWORD}@rabbitmq:5672/${RABBITMQ_VHOST}
+      Zipkin__Endpoint: http://zipkin:9411/api/v2/spans
+      IdentityServer__Authority: http://identity-api:8080
+      ASPNETCORE_URLS: http://+:8080
+    networks:
+      - ecommerce-net
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+      identity-api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:8080/health || exit 1"]
+      <<: *hc-defaults
+
+  inventory-api:
+    image: ${DOCKER_REGISTRY:-ecommerce}/inventory-api:${TAG:-latest}
+    container_name: ecommerce-inventory-api
+    build:
+      context: .
+      dockerfile: src/Services/Inventory/Inventory.Api/Dockerfile
+    restart: unless-stopped
+    environment:
+      <<: *common-env
+      ConnectionStrings__DefaultConnection: >-
+        Host=postgres;Port=5432;Database=${INVENTORY_DB};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}
+      ConnectionStrings__RabbitMQ: amqp://${RABBITMQ_USER}:${RABBITMQ_PASSWORD}@rabbitmq:5672/${RABBITMQ_VHOST}
+      Zipkin__Endpoint: http://zipkin:9411/api/v2/spans
+      IdentityServer__Authority: http://identity-api:8080
+      ASPNETCORE_URLS: http://+:8080
+      ASPNETCORE_Kestrel__Endpoints__gRPC__Url: http://+:8090
+      ASPNETCORE_Kestrel__Endpoints__gRPC__Protocols: Http2
+    networks:
+      - ecommerce-net
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+      identity-api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:8080/health || exit 1"]
+      <<: *hc-defaults
+
+  payment-api:
+    image: ${DOCKER_REGISTRY:-ecommerce}/payment-api:${TAG:-latest}
+    container_name: ecommerce-payment-api
+    build:
+      context: .
+      dockerfile: src/Services/Payment/Payment.Api/Dockerfile
+    restart: unless-stopped
+    environment:
+      <<: *common-env
+      ConnectionStrings__DefaultConnection: >-
+        Host=postgres;Port=5432;Database=${PAYMENT_DB};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}
+      ConnectionStrings__RabbitMQ: amqp://${RABBITMQ_USER}:${RABBITMQ_PASSWORD}@rabbitmq:5672/${RABBITMQ_VHOST}
+      Zipkin__Endpoint: http://zipkin:9411/api/v2/spans
+      IdentityServer__Authority: http://identity-api:8080
+      ASPNETCORE_URLS: http://+:8080
+    networks:
+      - ecommerce-net
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+      identity-api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:8080/health || exit 1"]
+      <<: *hc-defaults
+
+  notification-api:
+    image: ${DOCKER_REGISTRY:-ecommerce}/notification-api:${TAG:-latest}
+    container_name: ecommerce-notification-api
+    build:
+      context: .
+      dockerfile: src/Services/Notification/Notification.Api/Dockerfile
+    restart: unless-stopped
+    environment:
+      <<: *common-env
+      ConnectionStrings__RabbitMQ: amqp://${RABBITMQ_USER}:${RABBITMQ_PASSWORD}@rabbitmq:5672/${RABBITMQ_VHOST}
+      SendGrid__ApiKey: ${SENDGRID_API_KEY}
+      ASPNETCORE_URLS: http://+:8080
+    networks:
+      - ecommerce-net
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:8080/health || exit 1"]
+      <<: *hc-defaults
+
+  api-gateway:
+    image: ${DOCKER_REGISTRY:-ecommerce}/api-gateway:${TAG:-latest}
+    container_name: ecommerce-api-gateway
+    build:
+      context: .
+      dockerfile: src/ApiGateway/ECommerce.ApiGateway/Dockerfile
+    restart: unless-stopped
+    environment:
+      <<: *common-env
+      Authentication__Authority: http://identity-api:8080
+      Authentication__Audience: api
+      Zipkin__Endpoint: http://zipkin:9411/api/v2/spans
+      ASPNETCORE_URLS: http://+:8080
+    networks:
+      - ecommerce-net
+    depends_on:
+      identity-api:
+        condition: service_healthy
+      catalog-api:
+        condition: service_healthy
+      order-api:
+        condition: service_healthy
+      inventory-api:
+        condition: service_healthy
+      payment-api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:8080/health || exit 1"]
+      <<: *hc-defaults
+
+  blazor-frontend:
+    image: ${DOCKER_REGISTRY:-ecommerce}/blazor-frontend:${TAG:-latest}
+    container_name: ecommerce-blazor-frontend
+    build:
+      context: .
+      dockerfile: src/Frontend/ECommerce.Web.Blazor/Dockerfile
+    restart: unless-stopped
+    environment:
+      <<: *common-env
+      ApiGateway__BaseUrl: http://api-gateway:8080
+      ASPNETCORE_URLS: http://+:8080
+    networks:
+      - ecommerce-net
+    depends_on:
+      api-gateway:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:8080/health || exit 1"]
+      <<: *hc-defaults

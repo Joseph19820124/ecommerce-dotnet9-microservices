@@ -1,0 +1,166 @@
+version: "3.9"
+
+# =============================================================================
+# Development overrides
+# Adds host-port bindings for every service and mounts source trees for
+# hot-reload via `dotnet watch`.  Applied automatically when you run:
+#   docker compose up
+# or explicitly:
+#   docker compose -f docker-compose.yml -f docker-compose.override.yml up
+# =============================================================================
+
+services:
+
+  # ── Infrastructure port bindings ──────────────────────────────────────────
+
+  postgres:
+    ports:
+      - "5432:5432"
+
+  redis:
+    ports:
+      - "6379:6379"
+
+  rabbitmq:
+    ports:
+      - "5672:5672"      # AMQP
+      - "15672:15672"    # Management UI  →  http://localhost:15672
+
+  elasticsearch:
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+
+  kibana:
+    ports:
+      - "5601:5601"      # Kibana UI  →  http://localhost:5601
+
+  pgadmin:
+    ports:
+      - "5050:80"        # pgAdmin UI  →  http://localhost:5050
+
+  zipkin:
+    ports:
+      - "9411:9411"      # Zipkin UI  →  http://localhost:9411
+
+  # ── Microservices – dev overrides ─────────────────────────────────────────
+
+  identity-api:
+    build:
+      target: development
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:8080
+    ports:
+      - "5100:8080"      # http://localhost:5100
+    volumes:
+      - ./src/Services/Identity/Identity.Api:/app/src/Services/Identity/Identity.Api
+      - ./src/SharedKernel:/app/src/SharedKernel
+      - ~/.nuget/packages:/root/.nuget/packages:ro
+    command: ["dotnet", "watch", "--project", "src/Services/Identity/Identity.Api/Identity.Api.csproj", "run", "--no-launch-profile"]
+
+  catalog-api:
+    build:
+      target: development
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:8080
+    ports:
+      - "5101:8080"      # http://localhost:5101
+    volumes:
+      - ./src/Services/Catalog/Catalog.Api:/app/src/Services/Catalog/Catalog.Api
+      - ./src/Services/Catalog/Catalog.Domain:/app/src/Services/Catalog/Catalog.Domain
+      - ./src/Services/Catalog/Catalog.Infrastructure:/app/src/Services/Catalog/Catalog.Infrastructure
+      - ./src/SharedKernel:/app/src/SharedKernel
+      - ~/.nuget/packages:/root/.nuget/packages:ro
+    command: ["dotnet", "watch", "--project", "src/Services/Catalog/Catalog.Api/Catalog.Api.csproj", "run", "--no-launch-profile"]
+
+  order-api:
+    build:
+      target: development
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:8080
+    ports:
+      - "5102:8080"      # http://localhost:5102
+    volumes:
+      - ./src/Services/Order/Order.Api:/app/src/Services/Order/Order.Api
+      - ./src/Services/Order/Order.Domain:/app/src/Services/Order/Order.Domain
+      - ./src/Services/Order/Order.Application:/app/src/Services/Order/Order.Application
+      - ./src/Services/Order/Order.Infrastructure:/app/src/Services/Order/Order.Infrastructure
+      - ./src/SharedKernel:/app/src/SharedKernel
+      - ~/.nuget/packages:/root/.nuget/packages:ro
+    command: ["dotnet", "watch", "--project", "src/Services/Order/Order.Api/Order.Api.csproj", "run", "--no-launch-profile"]
+
+  inventory-api:
+    build:
+      target: development
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:8080
+    ports:
+      - "5103:8080"      # http://localhost:5103
+      - "5193:8090"      # gRPC  →  localhost:5193
+    volumes:
+      - ./src/Services/Inventory/Inventory.Api:/app/src/Services/Inventory/Inventory.Api
+      - ./src/Services/Inventory/Inventory.Domain:/app/src/Services/Inventory/Inventory.Domain
+      - ./src/Services/Inventory/Inventory.Infrastructure:/app/src/Services/Inventory/Inventory.Infrastructure
+      - ./src/SharedKernel:/app/src/SharedKernel
+      - ~/.nuget/packages:/root/.nuget/packages:ro
+    command: ["dotnet", "watch", "--project", "src/Services/Inventory/Inventory.Api/Inventory.Api.csproj", "run", "--no-launch-profile"]
+
+  payment-api:
+    build:
+      target: development
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:8080
+    ports:
+      - "5104:8080"      # http://localhost:5104
+    volumes:
+      - ./src/Services/Payment/Payment.Api:/app/src/Services/Payment/Payment.Api
+      - ./src/Services/Payment/Payment.Domain:/app/src/Services/Payment/Payment.Domain
+      - ./src/Services/Payment/Payment.Infrastructure:/app/src/Services/Payment/Payment.Infrastructure
+      - ./src/SharedKernel:/app/src/SharedKernel
+      - ~/.nuget/packages:/root/.nuget/packages:ro
+    command: ["dotnet", "watch", "--project", "src/Services/Payment/Payment.Api/Payment.Api.csproj", "run", "--no-launch-profile"]
+
+  notification-api:
+    build:
+      target: development
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:8080
+    ports:
+      - "5105:8080"      # http://localhost:5105
+    volumes:
+      - ./src/Services/Notification/Notification.Api:/app/src/Services/Notification/Notification.Api
+      - ./src/SharedKernel:/app/src/SharedKernel
+      - ~/.nuget/packages:/root/.nuget/packages:ro
+    command: ["dotnet", "watch", "--project", "src/Services/Notification/Notification.Api/Notification.Api.csproj", "run", "--no-launch-profile"]
+
+  api-gateway:
+    build:
+      target: development
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:8080
+    ports:
+      - "5000:8080"      # http://localhost:5000  ← main ingress in dev
+    volumes:
+      - ./src/ApiGateway/ECommerce.ApiGateway:/app/src/ApiGateway/ECommerce.ApiGateway
+      - ~/.nuget/packages:/root/.nuget/packages:ro
+    command: ["dotnet", "watch", "--project", "src/ApiGateway/ECommerce.ApiGateway/ECommerce.ApiGateway.csproj", "run", "--no-launch-profile"]
+
+  blazor-frontend:
+    build:
+      target: development
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:8080
+    ports:
+      - "5200:8080"      # http://localhost:5200
+    volumes:
+      - ./src/Frontend/ECommerce.Web.Blazor:/app/src/Frontend/ECommerce.Web.Blazor
+      - ~/.nuget/packages:/root/.nuget/packages:ro
+    command: ["dotnet", "watch", "--project", "src/Frontend/ECommerce.Web.Blazor/ECommerce.Web.Blazor.csproj", "run", "--no-launch-profile"]

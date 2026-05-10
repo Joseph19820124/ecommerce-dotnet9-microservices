@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="Name_Required" xml:space="preserve">
+    <value>商品名称不能为空。</value>
+  </data>
+  <data name="Name_MaxLength" xml:space="preserve">
+    <value>商品名称不能超过 200 个字符。</value>
+  </data>
+  <data name="Price_Positive" xml:space="preserve">
+    <value>价格必须大于零。</value>
+  </data>
+  <data name="Currency_Invalid" xml:space="preserve">
+    <value>货币类型必须是以下之一：USD、CNY、EUR。</value>
+  </data>
+  <data name="CategoryId_Required" xml:space="preserve">
+    <value>商品分类不能为空。</value>
+  </data>
+  <data name="Sku_Required" xml:space="preserve">
+    <value>SKU 不能为空。</value>
+  </data>
+  <data name="Sku_MaxLength" xml:space="preserve">
+    <value>SKU 不能超过 50 个字符。</value>
+  </data>
+</root>

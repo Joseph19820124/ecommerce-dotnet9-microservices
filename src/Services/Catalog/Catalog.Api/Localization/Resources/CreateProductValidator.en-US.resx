@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="Name_Required" xml:space="preserve">
+    <value>Product name is required.</value>
+  </data>
+  <data name="Name_MaxLength" xml:space="preserve">
+    <value>Product name cannot exceed 200 characters.</value>
+  </data>
+  <data name="Price_Positive" xml:space="preserve">
+    <value>Price must be greater than zero.</value>
+  </data>
+  <data name="Currency_Invalid" xml:space="preserve">
+    <value>Currency must be one of: USD, CNY, EUR.</value>
+  </data>
+  <data name="CategoryId_Required" xml:space="preserve">
+    <value>Category is required.</value>
+  </data>
+  <data name="Sku_Required" xml:space="preserve">
+    <value>SKU is required.</value>
+  </data>
+  <data name="Sku_MaxLength" xml:space="preserve">
+    <value>SKU cannot exceed 50 characters.</value>
+  </data>
+</root>
