@@ -1,0 +1,234 @@
+version: "3.9"
+
+# ---------------------------------------------------------------------------
+# Local development override — emulates AWS services with Docker equivalents.
+# Usage:
+#   docker compose -f docker-compose.yml -f docker-compose.local.yml up
+#
+# Simulates:
+#   Amazon RDS          → postgres:16-alpine
+#   Amazon ElastiCache  → redis:7-alpine
+#   Amazon MQ           → rabbitmq:3.13-management-alpine
+#   Amazon OpenSearch   → opensearchproject/opensearch:2.14.0
+#   OpenSearch Dashboard→ opensearchproject/opensearch-dashboards:2.14.0
+#   AWS X-Ray           → replaced by Jaeger (UI on :16686)
+# ---------------------------------------------------------------------------
+
+networks:
+  ecommerce-net:
+    driver: bridge
+
+volumes:
+  local-postgres-data:
+  local-redis-data:
+  local-rabbitmq-data:
+  local-opensearch-data:
+
+x-local-env: &local-env
+  ASPNETCORE_ENVIRONMENT: Development
+  AWS_REGION: us-east-1
+
+services:
+
+  # ── Local infrastructure ──────────────────────────────────────────────────
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: local-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: localdev123
+    volumes:
+      - local-postgres-data:/var/lib/postgresql/data
+      - ./infra/postgres/init-databases.sh:/docker-entrypoint-initdb.d/init-databases.sh:ro
+    ports:
+      - "5432:5432"
+    networks:
+      - ecommerce-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    container_name: local-redis
+    command: redis-server --appendonly yes
+    volumes:
+      - local-redis-data:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - ecommerce-net
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      retries: 10
+
+  rabbitmq:
+    image: rabbitmq:3.13-management-alpine
+    container_name: local-rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+      RABBITMQ_DEFAULT_VHOST: ecommerce
+    volumes:
+      - local-rabbitmq-data:/var/lib/rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"   # Management UI
+    networks:
+      - ecommerce-net
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "check_port_connectivity"]
+      interval: 10s
+      retries: 10
+
+  opensearch:
+    image: opensearchproject/opensearch:2.14.0
+    container_name: local-opensearch
+    environment:
+      discovery.type: single-node
+      DISABLE_SECURITY_PLUGIN: "true"
+      OPENSEARCH_JAVA_OPTS: "-Xms512m -Xmx512m"
+    volumes:
+      - local-opensearch-data:/usr/share/opensearch/data
+    ports:
+      - "9200:9200"
+    networks:
+      - ecommerce-net
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s http://localhost:9200/_cluster/health | grep -vq '\"status\":\"red\"'"]
+      interval: 15s
+      retries: 10
+
+  opensearch-dashboards:
+    image: opensearchproject/opensearch-dashboards:2.14.0
+    container_name: local-opensearch-dashboards
+    environment:
+      OPENSEARCH_HOSTS: '["http://opensearch:9200"]'
+      DISABLE_SECURITY_DASHBOARDS_PLUGIN: "true"
+    ports:
+      - "5601:5601"
+    networks:
+      - ecommerce-net
+    depends_on:
+      opensearch:
+        condition: service_healthy
+
+  jaeger:
+    image: jaegertracing/all-in-one:1.58
+    container_name: local-jaeger
+    environment:
+      COLLECTOR_OTLP_ENABLED: "true"
+    ports:
+      - "16686:16686"  # Jaeger UI
+      - "4317:4317"    # OTLP gRPC (same port as ADOT in production)
+      - "4318:4318"    # OTLP HTTP
+    networks:
+      - ecommerce-net
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: local-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@local.dev
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    networks:
+      - ecommerce-net
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  # ── Override service env vars to point to local infra ────────────────────
+
+  catalog-api:
+    environment:
+      <<: *local-env
+      ConnectionStrings__CatalogDb: "Host=postgres;Port=5432;Database=catalog_db;Username=postgres;Password=localdev123"
+      ConnectionStrings__Redis: "redis:6379"
+      RabbitMQ__Host: "rabbitmq"
+      RabbitMQ__Username: "guest"
+      RabbitMQ__Password: "guest"
+      OpenSearch__Endpoint: "http://opensearch:9200"
+      OpenTelemetry__OtlpEndpoint: "http://jaeger:4317"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+      opensearch:
+        condition: service_healthy
+
+  order-api:
+    environment:
+      <<: *local-env
+      ConnectionStrings__OrderDb: "Host=postgres;Port=5432;Database=order_db;Username=postgres;Password=localdev123"
+      ConnectionStrings__Redis: "redis:6379"
+      RabbitMQ__Host: "rabbitmq"
+      RabbitMQ__Username: "guest"
+      RabbitMQ__Password: "guest"
+      OpenTelemetry__OtlpEndpoint: "http://jaeger:4317"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+
+  identity-api:
+    environment:
+      <<: *local-env
+      ConnectionStrings__DefaultConnection: "Host=postgres;Port=5432;Database=identity_db;Username=postgres;Password=localdev123"
+      OpenTelemetry__OtlpEndpoint: "http://jaeger:4317"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  inventory-api:
+    environment:
+      <<: *local-env
+      ConnectionStrings__InventoryDb: "Host=postgres;Port=5432;Database=inventory_db;Username=postgres;Password=localdev123"
+      RabbitMQ__Host: "rabbitmq"
+      RabbitMQ__Username: "guest"
+      RabbitMQ__Password: "guest"
+      OpenTelemetry__OtlpEndpoint: "http://jaeger:4317"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+
+  payment-api:
+    environment:
+      <<: *local-env
+      ConnectionStrings__PaymentDb: "Host=postgres;Port=5432;Database=payment_db;Username=postgres;Password=localdev123"
+      RabbitMQ__Host: "rabbitmq"
+      RabbitMQ__Username: "guest"
+      RabbitMQ__Password: "guest"
+      OpenTelemetry__OtlpEndpoint: "http://jaeger:4317"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+
+  notification-api:
+    environment:
+      <<: *local-env
+      RabbitMQ__Host: "rabbitmq"
+      RabbitMQ__Username: "guest"
+      RabbitMQ__Password: "guest"
+      OpenTelemetry__OtlpEndpoint: "http://jaeger:4317"
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+
+  api-gateway:
+    environment:
+      <<: *local-env
+      OpenTelemetry__OtlpEndpoint: "http://jaeger:4317"

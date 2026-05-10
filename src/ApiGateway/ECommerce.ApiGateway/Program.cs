@@ -1,11 +1,20 @@
-using Serilog;
+using OpenTelemetry.Contrib.Instrumentation.AWSXRay.Implementation;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
+if (!builder.Environment.IsDevelopment())
+{
+    builder.Configuration.AddSystemsManager(
+        $"/ecommerce/{builder.Environment.EnvironmentName}/gateway",
+        TimeSpan.FromMinutes(5));
+}
+
 builder.Host.UseSerilog((ctx, cfg) =>
-    cfg.ReadFrom.Configuration(ctx.Configuration));
+    cfg.ReadFrom.Configuration(ctx.Configuration)
+       .Enrich.WithProperty("Service", "api-gateway"));
 
 builder.Services
     .AddReverseProxy()
@@ -17,7 +26,7 @@ builder.Services
     {
         options.Authority = builder.Configuration["Authentication:Authority"];
         options.Audience = builder.Configuration["Authentication:Audience"];
-        options.RequireHttpsMetadata = false;
+        options.RequireHttpsMetadata = !builder.Environment.IsDevelopment();
     });
 
 builder.Services.AddAuthorization();
@@ -25,9 +34,12 @@ builder.Services.AddAuthorization();
 builder.Services.AddOpenTelemetry()
     .WithTracing(tracing => tracing
         .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService("api-gateway"))
+        .AddXRayTraceId()
         .AddAspNetCoreInstrumentation()
         .AddHttpClientInstrumentation()
-        .AddZipkinExporter());
+        .AddOtlpExporter(opts =>
+            opts.Endpoint = new Uri(
+                builder.Configuration["OpenTelemetry:OtlpEndpoint"] ?? "http://localhost:4317")));
 
 var app = builder.Build();
 
@@ -35,5 +47,6 @@ app.UseSerilogRequestLogging();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapReverseProxy();
+app.MapHealthChecks("/health");
 
 app.Run();

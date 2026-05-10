@@ -1,0 +1,31 @@
+extensions:
+  health_check:
+
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+      http:
+        endpoint: 0.0.0.0:4318
+
+processors:
+  batch:
+    timeout: 1s
+    send_batch_size: 50
+
+exporters:
+  awsxray:
+    region: ${AWS_REGION}
+  awscloudwatchlogs:
+    region: ${AWS_REGION}
+    log_group_name: /ecommerce/otel
+    log_stream_name: traces
+
+service:
+  extensions: [health_check]
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [awsxray]

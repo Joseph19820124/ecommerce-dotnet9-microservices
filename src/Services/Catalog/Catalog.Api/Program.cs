@@ -1,50 +1,59 @@
 using Carter;
+using ECommerce.Catalog.Infrastructure;
 using ECommerce.SharedKernel.Extensions;
-using Serilog;
+using OpenTelemetry.Contrib.Instrumentation.AWSXRay.Implementation;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
+using Serilog;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Load secrets from AWS Secrets Manager / Parameter Store in non-Development environments
+if (!builder.Environment.IsDevelopment())
+{
+    builder.Configuration.AddSystemsManager(
+        $"/ecommerce/{builder.Environment.EnvironmentName}/catalog",
+        TimeSpan.FromMinutes(5));
+}
+
 builder.Host.UseSerilog((ctx, cfg) =>
-    cfg.ReadFrom.Configuration(ctx.Configuration));
+    cfg.ReadFrom.Configuration(ctx.Configuration)
+       .Enrich.WithProperty("Service", "catalog-api"));
 
-// MediatR + FluentValidation + Pipeline Behaviors
 builder.Services.AddSharedKernel(Assembly.GetExecutingAssembly());
-
-// Carter (Minimal API endpoint discovery)
 builder.Services.AddCarter();
-
-// Localization
 builder.Services.AddLocalization(opts => opts.ResourcesPath = "Localization/Resources");
-
-// Swagger / OpenAPI
 builder.Services.AddOpenApi();
 
-// Auth
-builder.Services.AddAuthentication("Bearer")
+builder.Services
+    .AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", opts =>
     {
         opts.Authority = builder.Configuration["Authentication:Authority"];
         opts.Audience = builder.Configuration["Authentication:Audience"];
-        opts.RequireHttpsMetadata = false;
+        opts.RequireHttpsMetadata = !builder.Environment.IsDevelopment();
     });
 
 builder.Services.AddAuthorization(opts =>
     opts.AddPolicy("AdminPolicy", p => p.RequireClaim("role", "admin")));
 
-// Infrastructure (EF Core, Redis, Elasticsearch, MassTransit) — registered via extension
 builder.Services.AddCatalogInfrastructure(builder.Configuration);
 
-// OpenTelemetry
+// AWS X-Ray via OpenTelemetry OTLP → X-Ray daemon sidecar (UDP 2000)
 builder.Services.AddOpenTelemetry()
     .WithTracing(tracing => tracing
-        .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService("catalog-api"))
+        .SetResourceBuilder(ResourceBuilder.CreateDefault()
+            .AddService("catalog-api")
+            .AddTelemetrySdk())
+        .AddXRayTraceId()                       // use X-Ray trace ID format
         .AddAspNetCoreInstrumentation()
+        .AddHttpClientInstrumentation()
         .AddEntityFrameworkCoreInstrumentation()
-        .AddZipkinExporter(opts =>
-            opts.Endpoint = new Uri(builder.Configuration["Zipkin:Endpoint"]!)));
+        .AddOtlpExporter(opts =>                // ship to X-Ray daemon (ADOT sidecar)
+            opts.Endpoint = new Uri(
+                builder.Configuration["OpenTelemetry:OtlpEndpoint"]
+                    ?? "http://localhost:4317")));
 
 var app = builder.Build();
 
@@ -61,5 +70,6 @@ app.UseSerilogRequestLogging();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapCarter();
+app.MapHealthChecks("/health");
 
 app.Run();
