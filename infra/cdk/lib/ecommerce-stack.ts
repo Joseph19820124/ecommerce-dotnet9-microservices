@@ -57,11 +57,10 @@ export class ECommerceStack extends cdk.Stack {
     const vpc = new ec2.Vpc(this, 'Vpc', {
       vpcName: `${prefix}-vpc`,
       maxAzs: 2,
-      natGateways: isProd ? 2 : 1,
+      natGateways: isProd ? 2 : 0, // dev: no NAT GW, EC2 gets public IP via public subnet
       subnetConfiguration: [
-        { name: 'Public',   subnetType: ec2.SubnetType.PUBLIC,            cidrMask: 24 },
-        { name: 'Private',  subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS, cidrMask: 24 },
-        { name: 'Isolated', subnetType: ec2.SubnetType.PRIVATE_ISOLATED,  cidrMask: 24 },
+        { name: 'Public',   subnetType: ec2.SubnetType.PUBLIC,           cidrMask: 24 },
+        { name: 'Isolated', subnetType: ec2.SubnetType.PRIVATE_ISOLATED, cidrMask: 24 },
       ],
     });
 
@@ -167,7 +166,7 @@ export class ECommerceStack extends cdk.Stack {
       },
       ebs: { enabled: true, volumeSize: 20, volumeType: ec2.EbsDeviceVolumeType.GP3 },
       vpc,
-      vpcSubnets: [{ subnets: [vpc.selectSubnets({ subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS, onePerAz: true }).subnets[0]] }],
+      vpcSubnets: [{ subnets: [vpc.selectSubnets({ subnetType: ec2.SubnetType.PRIVATE_ISOLATED, onePerAz: true }).subnets[0]] }],
       securityGroups: [openSearchSg],
       zoneAwareness: { enabled: false },
       enforceHttps: true,
@@ -203,13 +202,14 @@ export class ECommerceStack extends cdk.Stack {
       role: instanceRole,
       securityGroup: ecsSg,
       requireImdsv2: true,
+      associatePublicIpAddress: !isProd, // dev: public IP replaces NAT Gateway
       userData: ec2.UserData.forLinux(),
     });
 
     const asg = new autoscaling.AutoScalingGroup(this, 'EcsAsg', {
       autoScalingGroupName: `${prefix}-ecs-asg`,
       vpc,
-      vpcSubnets: { subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS },
+      vpcSubnets: { subnetType: ec2.SubnetType.PUBLIC },
       launchTemplate,
       minCapacity: 2,
       maxCapacity: isProd ? 10 : 4,
@@ -374,7 +374,7 @@ export class ECommerceStack extends cdk.Stack {
         cluster,
         taskDefinition: taskDef,
         desiredCount: 0, // Start at 0; scale up after pushing real images
-        vpcSubnets: { subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS },
+        vpcSubnets: { subnetType: ec2.SubnetType.PUBLIC },
         securityGroups: [ecsSg],
         enableExecuteCommand: true,
         circuitBreaker: { enable: false }, // Disabled during initial infra deploy

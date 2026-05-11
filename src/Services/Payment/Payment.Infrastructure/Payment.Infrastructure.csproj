@@ -10,6 +10,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Payment.Domain\Payment.Domain.csproj" />
-    <ProjectReference Include="..\..\..\..\SharedKernel\ECommerce.SharedKernel\ECommerce.SharedKernel.csproj" />
+    <ProjectReference Include="..\..\..\SharedKernel\ECommerce.SharedKernel\ECommerce.SharedKernel.csproj" />
   </ItemGroup>
 </Project>

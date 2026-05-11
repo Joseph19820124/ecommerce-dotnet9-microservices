@@ -1,4 +1,3 @@
-using OpenTelemetry.Contrib.Instrumentation.AWSXRay.Implementation;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
 using Serilog;
@@ -7,7 +6,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 if (!builder.Environment.IsDevelopment())
 {
-    builder.Configuration.AddSystemsManager(
         $"/ecommerce/{builder.Environment.EnvironmentName}/gateway",
         TimeSpan.FromMinutes(5));
 }
@@ -34,7 +32,6 @@ builder.Services.AddAuthorization();
 builder.Services.AddOpenTelemetry()
     .WithTracing(tracing => tracing
         .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService("api-gateway"))
-        .AddXRayTraceId()
         .AddAspNetCoreInstrumentation()
         .AddHttpClientInstrumentation()
         .AddOtlpExporter(opts =>

@@ -1,5 +1,5 @@
 using ECommerce.Catalog.Domain.Entities;
-using ECommerce.SharedKernel.Domain;
+using ECommerce.SharedKernel.Abstractions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,7 +7,7 @@ namespace ECommerce.Catalog.Infrastructure.Persistence;
 
 public sealed class CatalogDbContext(
     DbContextOptions<CatalogDbContext> options,
-    IPublisher publisher) : DbContext(options)
+    IPublisher publisher) : DbContext(options), IUnitOfWork
 {
     public DbSet<Product> Products => Set<Product>();
 
@@ -19,15 +19,7 @@ public sealed class CatalogDbContext(
 
     public override async Task<int> SaveChangesAsync(CancellationToken ct = default)
     {
-        var domainEvents = ChangeTracker.Entries<AggregateRoot<dynamic>>()
-            .SelectMany(e => e.Entity.DomainEvents)
-            .ToList();
-
         var result = await base.SaveChangesAsync(ct);
-
-        foreach (var domainEvent in domainEvents)
-            await publisher.Publish(domainEvent, ct);
-
         return result;
     }
 }

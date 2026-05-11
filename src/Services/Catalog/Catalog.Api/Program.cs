@@ -1,7 +1,6 @@
 using Carter;
 using ECommerce.Catalog.Infrastructure;
 using ECommerce.SharedKernel.Extensions;
-using OpenTelemetry.Contrib.Instrumentation.AWSXRay.Implementation;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
 using Serilog;
@@ -9,13 +8,6 @@ using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Load secrets from AWS Secrets Manager / Parameter Store in non-Development environments
-if (!builder.Environment.IsDevelopment())
-{
-    builder.Configuration.AddSystemsManager(
-        $"/ecommerce/{builder.Environment.EnvironmentName}/catalog",
-        TimeSpan.FromMinutes(5));
-}
 
 builder.Host.UseSerilog((ctx, cfg) =>
     cfg.ReadFrom.Configuration(ctx.Configuration)
@@ -46,7 +38,6 @@ builder.Services.AddOpenTelemetry()
         .SetResourceBuilder(ResourceBuilder.CreateDefault()
             .AddService("catalog-api")
             .AddTelemetrySdk())
-        .AddXRayTraceId()                       // use X-Ray trace ID format
         .AddAspNetCoreInstrumentation()
         .AddHttpClientInstrumentation()
         .AddEntityFrameworkCoreInstrumentation()

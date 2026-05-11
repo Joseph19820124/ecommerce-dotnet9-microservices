@@ -2,7 +2,6 @@ using Carter;
 using ECommerce.Order.Application.Sagas;
 using ECommerce.SharedKernel.Extensions;
 using MassTransit;
-using OpenTelemetry.Contrib.Instrumentation.AWSXRay.Implementation;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
 using Serilog;
@@ -12,7 +11,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 if (!builder.Environment.IsDevelopment())
 {
-    builder.Configuration.AddSystemsManager(
         $"/ecommerce/{builder.Environment.EnvironmentName}/order",
         TimeSpan.FromMinutes(5));
 }
@@ -72,7 +70,6 @@ builder.Services.AddMassTransit(cfg =>
 builder.Services.AddOpenTelemetry()
     .WithTracing(tracing => tracing
         .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService("order-api"))
-        .AddXRayTraceId()
         .AddAspNetCoreInstrumentation()
         .AddOtlpExporter(opts =>
             opts.Endpoint = new Uri(

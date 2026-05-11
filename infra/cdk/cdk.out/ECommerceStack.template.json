@@ -1,23 +1,5 @@
 {
  "Description": "ECommerce platform — VPC, RDS, ElastiCache, MQ, OpenSearch, ECS Fargate",
- "Parameters": {
-  "MqPassword": {
-   "Type": "String",
-   "Description": "RabbitMQ admin password (min 12 chars, 4 unique chars, no commas/colons/equals/spaces)",
-   "MaxLength": 250,
-   "MinLength": 12,
-   "NoEcho": true
-  },
-  "SsmParameterValueawsserviceecsoptimizedamiamazonlinux2023recommendedimageidC96584B6F00A464EAD1953AFF4B05118Parameter": {
-   "Type": "AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>",
-   "Default": "/aws/service/ecs/optimized-ami/amazon-linux-2023/recommended/image_id"
-  },
-  "BootstrapVersion": {
-   "Type": "AWS::SSM::Parameter::Value<String>",
-   "Default": "/cdk-bootstrap/hnb659fds/version",
-   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
-  }
- },
  "Resources": {
   "Vpc8378EB38": {
    "Type": "AWS::EC2::VPC",
@@ -114,48 +96,6 @@
     "aws:cdk:path": "ECommerceStack/Vpc/PublicSubnet1/DefaultRoute"
    }
   },
-  "VpcPublicSubnet1EIPD7E02669": {
-   "Type": "AWS::EC2::EIP",
-   "Properties": {
-    "Domain": "vpc",
-    "Tags": [
-     {
-      "Key": "Name",
-      "Value": "ECommerceStack/Vpc/PublicSubnet1"
-     }
-    ]
-   },
-   "Metadata": {
-    "aws:cdk:path": "ECommerceStack/Vpc/PublicSubnet1/EIP"
-   }
-  },
-  "VpcPublicSubnet1NATGateway4D7517AA": {
-   "Type": "AWS::EC2::NatGateway",
-   "Properties": {
-    "AllocationId": {
-     "Fn::GetAtt": [
-      "VpcPublicSubnet1EIPD7E02669",
-      "AllocationId"
-     ]
-    },
-    "SubnetId": {
-     "Ref": "VpcPublicSubnet1Subnet5C2D37C4"
-    },
-    "Tags": [
-     {
-      "Key": "Name",
-      "Value": "ECommerceStack/Vpc/PublicSubnet1"
-     }
-    ]
-   },
-   "DependsOn": [
-    "VpcPublicSubnet1DefaultRoute3DA9E72A",
-    "VpcPublicSubnet1RouteTableAssociation97140677"
-   ],
-   "Metadata": {
-    "aws:cdk:path": "ECommerceStack/Vpc/PublicSubnet1/NATGateway"
-   }
-  },
   "VpcPublicSubnet2Subnet691E08A3": {
    "Type": "AWS::EC2::Subnet",
    "Properties": {
@@ -233,159 +173,11 @@
     "aws:cdk:path": "ECommerceStack/Vpc/PublicSubnet2/DefaultRoute"
    }
   },
-  "VpcPrivateSubnet1Subnet536B997A": {
-   "Type": "AWS::EC2::Subnet",
-   "Properties": {
-    "AvailabilityZone": "us-east-1a",
-    "CidrBlock": "10.0.2.0/24",
-    "MapPublicIpOnLaunch": false,
-    "Tags": [
-     {
-      "Key": "aws-cdk:subnet-name",
-      "Value": "Private"
-     },
-     {
-      "Key": "aws-cdk:subnet-type",
-      "Value": "Private"
-     },
-     {
-      "Key": "Name",
-      "Value": "ECommerceStack/Vpc/PrivateSubnet1"
-     }
-    ],
-    "VpcId": {
-     "Ref": "Vpc8378EB38"
-    }
-   },
-   "Metadata": {
-    "aws:cdk:path": "ECommerceStack/Vpc/PrivateSubnet1/Subnet"
-   }
-  },
-  "VpcPrivateSubnet1RouteTableB2C5B500": {
-   "Type": "AWS::EC2::RouteTable",
-   "Properties": {
-    "Tags": [
-     {
-      "Key": "Name",
-      "Value": "ECommerceStack/Vpc/PrivateSubnet1"
-     }
-    ],
-    "VpcId": {
-     "Ref": "Vpc8378EB38"
-    }
-   },
-   "Metadata": {
-    "aws:cdk:path": "ECommerceStack/Vpc/PrivateSubnet1/RouteTable"
-   }
-  },
-  "VpcPrivateSubnet1RouteTableAssociation70C59FA6": {
-   "Type": "AWS::EC2::SubnetRouteTableAssociation",
-   "Properties": {
-    "RouteTableId": {
-     "Ref": "VpcPrivateSubnet1RouteTableB2C5B500"
-    },
-    "SubnetId": {
-     "Ref": "VpcPrivateSubnet1Subnet536B997A"
-    }
-   },
-   "Metadata": {
-    "aws:cdk:path": "ECommerceStack/Vpc/PrivateSubnet1/RouteTableAssociation"
-   }
-  },
-  "VpcPrivateSubnet1DefaultRouteBE02A9ED": {
-   "Type": "AWS::EC2::Route",
-   "Properties": {
-    "DestinationCidrBlock": "0.0.0.0/0",
-    "NatGatewayId": {
-     "Ref": "VpcPublicSubnet1NATGateway4D7517AA"
-    },
-    "RouteTableId": {
-     "Ref": "VpcPrivateSubnet1RouteTableB2C5B500"
-    }
-   },
-   "Metadata": {
-    "aws:cdk:path": "ECommerceStack/Vpc/PrivateSubnet1/DefaultRoute"
-   }
-  },
-  "VpcPrivateSubnet2Subnet3788AAA1": {
-   "Type": "AWS::EC2::Subnet",
-   "Properties": {
-    "AvailabilityZone": "us-east-1b",
-    "CidrBlock": "10.0.3.0/24",
-    "MapPublicIpOnLaunch": false,
-    "Tags": [
-     {
-      "Key": "aws-cdk:subnet-name",
-      "Value": "Private"
-     },
-     {
-      "Key": "aws-cdk:subnet-type",
-      "Value": "Private"
-     },
-     {
-      "Key": "Name",
-      "Value": "ECommerceStack/Vpc/PrivateSubnet2"
-     }
-    ],
-    "VpcId": {
-     "Ref": "Vpc8378EB38"
-    }
-   },
-   "Metadata": {
-    "aws:cdk:path": "ECommerceStack/Vpc/PrivateSubnet2/Subnet"
-   }
-  },
-  "VpcPrivateSubnet2RouteTableA678073B": {
-   "Type": "AWS::EC2::RouteTable",
-   "Properties": {
-    "Tags": [
-     {
-      "Key": "Name",
-      "Value": "ECommerceStack/Vpc/PrivateSubnet2"
-     }
-    ],
-    "VpcId": {
-     "Ref": "Vpc8378EB38"
-    }
-   },
-   "Metadata": {
-    "aws:cdk:path": "ECommerceStack/Vpc/PrivateSubnet2/RouteTable"
-   }
-  },
-  "VpcPrivateSubnet2RouteTableAssociationA89CAD56": {
-   "Type": "AWS::EC2::SubnetRouteTableAssociation",
-   "Properties": {
-    "RouteTableId": {
-     "Ref": "VpcPrivateSubnet2RouteTableA678073B"
-    },
-    "SubnetId": {
-     "Ref": "VpcPrivateSubnet2Subnet3788AAA1"
-    }
-   },
-   "Metadata": {
-    "aws:cdk:path": "ECommerceStack/Vpc/PrivateSubnet2/RouteTableAssociation"
-   }
-  },
-  "VpcPrivateSubnet2DefaultRoute060D2087": {
-   "Type": "AWS::EC2::Route",
-   "Properties": {
-    "DestinationCidrBlock": "0.0.0.0/0",
-    "NatGatewayId": {
-     "Ref": "VpcPublicSubnet1NATGateway4D7517AA"
-    },
-    "RouteTableId": {
-     "Ref": "VpcPrivateSubnet2RouteTableA678073B"
-    }
-   },
-   "Metadata": {
-    "aws:cdk:path": "ECommerceStack/Vpc/PrivateSubnet2/DefaultRoute"
-   }
-  },
   "VpcIsolatedSubnet1SubnetE48C5737": {
    "Type": "AWS::EC2::Subnet",
    "Properties": {
     "AvailabilityZone": "us-east-1a",
-    "CidrBlock": "10.0.4.0/24",
+    "CidrBlock": "10.0.2.0/24",
     "MapPublicIpOnLaunch": false,
     "Tags": [
      {
@@ -444,7 +236,7 @@
    "Type": "AWS::EC2::Subnet",
    "Properties": {
     "AvailabilityZone": "us-east-1b",
-    "CidrBlock": "10.0.5.0/24",
+    "CidrBlock": "10.0.3.0/24",
     "MapPublicIpOnLaunch": false,
     "Tags": [
      {
@@ -719,51 +511,6 @@
     "aws:cdk:path": "ECommerceStack/RedisSg/from ECommerceStackEcsSg57F94E63:6379"
    }
   },
-  "MqSg5921CE75": {
-   "Type": "AWS::EC2::SecurityGroup",
-   "Properties": {
-    "GroupDescription": "MQ",
-    "SecurityGroupEgress": [
-     {
-      "CidrIp": "255.255.255.255/32",
-      "Description": "Disallow all traffic",
-      "FromPort": 252,
-      "IpProtocol": "icmp",
-      "ToPort": 86
-     }
-    ],
-    "VpcId": {
-     "Ref": "Vpc8378EB38"
-    }
-   },
-   "Metadata": {
-    "aws:cdk:path": "ECommerceStack/MqSg/Resource"
-   }
-  },
-  "MqSgfromECommerceStackEcsSg57F94E635671A446DD7A": {
-   "Type": "AWS::EC2::SecurityGroupIngress",
-   "Properties": {
-    "Description": "AMQPS",
-    "FromPort": 5671,
-    "GroupId": {
-     "Fn::GetAtt": [
-      "MqSg5921CE75",
-      "GroupId"
-     ]
-    },
-    "IpProtocol": "tcp",
-    "SourceSecurityGroupId": {
-     "Fn::GetAtt": [
-      "EcsSg17B4B0B3",
-      "GroupId"
-     ]
-    },
-    "ToPort": 5671
-   },
-   "Metadata": {
-    "aws:cdk:path": "ECommerceStack/MqSg/from ECommerceStackEcsSg57F94E63:5671"
-   }
-  },
   "OsSg89C9FF77": {
    "Type": "AWS::EC2::SecurityGroup",
    "Properties": {
@@ -976,60 +723,6 @@
     "aws:cdk:path": "ECommerceStack/Redis"
    }
   },
-  "MqSecretCfn": {
-   "Type": "AWS::SecretsManager::Secret",
-   "Properties": {
-    "Name": "ecommerce-dev/mq/rabbitmq",
-    "SecretString": {
-     "Fn::Sub": [
-      "{\"username\":\"ecommercebroker\",\"password\":\"${pwd}\"}",
-      {
-       "pwd": {
-        "Ref": "MqPassword"
-       }
-      }
-     ]
-    }
-   },
-   "Metadata": {
-    "aws:cdk:path": "ECommerceStack/MqSecretCfn"
-   }
-  },
-  "MqBroker": {
-   "Type": "AWS::AmazonMQ::Broker",
-   "Properties": {
-    "BrokerName": "ecommerce-dev-rabbitmq",
-    "DeploymentMode": "SINGLE_INSTANCE",
-    "EngineType": "RABBITMQ",
-    "EngineVersion": "3.13",
-    "HostInstanceType": "mq.m5.large",
-    "PubliclyAccessible": false,
-    "SecurityGroups": [
-     {
-      "Fn::GetAtt": [
-       "MqSg5921CE75",
-       "GroupId"
-      ]
-     }
-    ],
-    "SubnetIds": [
-     {
-      "Ref": "VpcPrivateSubnet1Subnet536B997A"
-     }
-    ],
-    "Users": [
-     {
-      "Password": {
-       "Ref": "MqPassword"
-      },
-      "Username": "ecommercebroker"
-     }
-    ]
-   },
-   "Metadata": {
-    "aws:cdk:path": "ECommerceStack/MqBroker"
-   }
-  },
   "OpenSearchSLR9156BEDF": {
    "Type": "Custom::AWS",
    "Properties": {
@@ -1213,7 +906,7 @@
      ],
      "SubnetIds": [
       {
-       "Ref": "VpcPrivateSubnet1Subnet536B997A"
+       "Ref": "VpcIsolatedSubnet1SubnetE48C5737"
       }
      ]
     }
@@ -1399,11 +1092,17 @@
      "MetadataOptions": {
       "HttpTokens": "required"
      },
-     "SecurityGroupIds": [
+     "NetworkInterfaces": [
       {
-       "Fn::GetAtt": [
-        "EcsSg17B4B0B3",
-        "GroupId"
+       "AssociatePublicIpAddress": true,
+       "DeviceIndex": 0,
+       "Groups": [
+        {
+         "Fn::GetAtt": [
+          "EcsSg17B4B0B3",
+          "GroupId"
+         ]
+        }
        ]
       }
      ],
@@ -1483,10 +1182,10 @@
     "NewInstancesProtectedFromScaleIn": false,
     "VPCZoneIdentifier": [
      {
-      "Ref": "VpcPrivateSubnet1Subnet536B997A"
+      "Ref": "VpcPublicSubnet1Subnet5C2D37C4"
      },
      {
-      "Ref": "VpcPrivateSubnet2Subnet3788AAA1"
+      "Ref": "VpcPublicSubnet2Subnet691E08A3"
      }
     ]
    },
@@ -2076,13 +1775,23 @@
        ],
        "Effect": "Allow",
        "Resource": [
-        "arn:aws:secretsmanager:us-east-1:319125696988:secret:ecommerce-dev/mq/rabbitmq*",
         {
          "Ref": "DbSecret685A0FA5"
         },
         {
          "Ref": "RedisAuthSecretF35EA0A2"
         }
+       ]
+      },
+      {
+       "Action": [
+        "sns:*",
+        "sqs:*"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        "arn:aws:sns:us-east-1:319125696988:*",
+        "arn:aws:sqs:us-east-1:319125696988:*"
        ]
       },
       {
@@ -2393,30 +2102,6 @@
         }
        },
        {
-        "Name": "MQ_ENDPOINT",
-        "Value": {
-         "Fn::Sub": [
-          "amqps://ecommercebroker:${pwd}@${ep}",
-          {
-           "pwd": {
-            "Ref": "MqPassword"
-           },
-           "ep": {
-            "Fn::Select": [
-             0,
-             {
-              "Fn::GetAtt": [
-               "MqBroker",
-               "AmqpEndpoints"
-              ]
-             }
-            ]
-           }
-          }
-         ]
-        }
-       },
-       {
         "Name": "OPENSEARCH_ENDPOINT",
         "Value": {
          "Fn::Join": [
@@ -2623,10 +2308,10 @@
       ],
       "Subnets": [
        {
-        "Ref": "VpcPrivateSubnet1Subnet536B997A"
+        "Ref": "VpcPublicSubnet1Subnet5C2D37C4"
        },
        {
-        "Ref": "VpcPrivateSubnet2Subnet3788AAA1"
+        "Ref": "VpcPublicSubnet2Subnet691E08A3"
        }
       ]
      }
@@ -2753,30 +2438,6 @@
          "Fn::GetAtt": [
           "Redis",
           "Endpoint.Address"
-         ]
-        }
-       },
-       {
-        "Name": "MQ_ENDPOINT",
-        "Value": {
-         "Fn::Sub": [
-          "amqps://ecommercebroker:${pwd}@${ep}",
-          {
-           "pwd": {
-            "Ref": "MqPassword"
-           },
-           "ep": {
-            "Fn::Select": [
-             0,
-             {
-              "Fn::GetAtt": [
-               "MqBroker",
-               "AmqpEndpoints"
-              ]
-             }
-            ]
-           }
-          }
          ]
         }
        },
@@ -2977,10 +2638,10 @@
       ],
       "Subnets": [
        {
-        "Ref": "VpcPrivateSubnet1Subnet536B997A"
+        "Ref": "VpcPublicSubnet1Subnet5C2D37C4"
        },
        {
-        "Ref": "VpcPrivateSubnet2Subnet3788AAA1"
+        "Ref": "VpcPublicSubnet2Subnet691E08A3"
        }
       ]
      }
@@ -3105,30 +2766,6 @@
          "Fn::GetAtt": [
           "Redis",
           "Endpoint.Address"
-         ]
-        }
-       },
-       {
-        "Name": "MQ_ENDPOINT",
-        "Value": {
-         "Fn::Sub": [
-          "amqps://ecommercebroker:${pwd}@${ep}",
-          {
-           "pwd": {
-            "Ref": "MqPassword"
-           },
-           "ep": {
-            "Fn::Select": [
-             0,
-             {
-              "Fn::GetAtt": [
-               "MqBroker",
-               "AmqpEndpoints"
-              ]
-             }
-            ]
-           }
-          }
          ]
         }
        },
@@ -3329,10 +2966,10 @@
       ],
       "Subnets": [
        {
-        "Ref": "VpcPrivateSubnet1Subnet536B997A"
+        "Ref": "VpcPublicSubnet1Subnet5C2D37C4"
        },
        {
-        "Ref": "VpcPrivateSubnet2Subnet3788AAA1"
+        "Ref": "VpcPublicSubnet2Subnet691E08A3"
        }
       ]
      }
@@ -3457,30 +3094,6 @@
          "Fn::GetAtt": [
           "Redis",
           "Endpoint.Address"
-         ]
-        }
-       },
-       {
-        "Name": "MQ_ENDPOINT",
-        "Value": {
-         "Fn::Sub": [
-          "amqps://ecommercebroker:${pwd}@${ep}",
-          {
-           "pwd": {
-            "Ref": "MqPassword"
-           },
-           "ep": {
-            "Fn::Select": [
-             0,
-             {
-              "Fn::GetAtt": [
-               "MqBroker",
-               "AmqpEndpoints"
-              ]
-             }
-            ]
-           }
-          }
          ]
         }
        },
@@ -3681,10 +3294,10 @@
       ],
       "Subnets": [
        {
-        "Ref": "VpcPrivateSubnet1Subnet536B997A"
+        "Ref": "VpcPublicSubnet1Subnet5C2D37C4"
        },
        {
-        "Ref": "VpcPrivateSubnet2Subnet3788AAA1"
+        "Ref": "VpcPublicSubnet2Subnet691E08A3"
        }
       ]
      }
@@ -3809,30 +3422,6 @@
          "Fn::GetAtt": [
           "Redis",
           "Endpoint.Address"
-         ]
-        }
-       },
-       {
-        "Name": "MQ_ENDPOINT",
-        "Value": {
-         "Fn::Sub": [
-          "amqps://ecommercebroker:${pwd}@${ep}",
-          {
-           "pwd": {
-            "Ref": "MqPassword"
-           },
-           "ep": {
-            "Fn::Select": [
-             0,
-             {
-              "Fn::GetAtt": [
-               "MqBroker",
-               "AmqpEndpoints"
-              ]
-             }
-            ]
-           }
-          }
          ]
         }
        },
@@ -4033,10 +3622,10 @@
       ],
       "Subnets": [
        {
-        "Ref": "VpcPrivateSubnet1Subnet536B997A"
+        "Ref": "VpcPublicSubnet1Subnet5C2D37C4"
        },
        {
-        "Ref": "VpcPrivateSubnet2Subnet3788AAA1"
+        "Ref": "VpcPublicSubnet2Subnet691E08A3"
        }
       ]
      }
@@ -4161,30 +3750,6 @@
          "Fn::GetAtt": [
           "Redis",
           "Endpoint.Address"
-         ]
-        }
-       },
-       {
-        "Name": "MQ_ENDPOINT",
-        "Value": {
-         "Fn::Sub": [
-          "amqps://ecommercebroker:${pwd}@${ep}",
-          {
-           "pwd": {
-            "Ref": "MqPassword"
-           },
-           "ep": {
-            "Fn::Select": [
-             0,
-             {
-              "Fn::GetAtt": [
-               "MqBroker",
-               "AmqpEndpoints"
-              ]
-             }
-            ]
-           }
-          }
          ]
         }
        },
@@ -4385,10 +3950,10 @@
       ],
       "Subnets": [
        {
-        "Ref": "VpcPrivateSubnet1Subnet536B997A"
+        "Ref": "VpcPublicSubnet1Subnet5C2D37C4"
        },
        {
-        "Ref": "VpcPrivateSubnet2Subnet3788AAA1"
+        "Ref": "VpcPublicSubnet2Subnet691E08A3"
        }
       ]
      }
@@ -4509,30 +4074,6 @@
          "Fn::GetAtt": [
           "Redis",
           "Endpoint.Address"
-         ]
-        }
-       },
-       {
-        "Name": "MQ_ENDPOINT",
-        "Value": {
-         "Fn::Sub": [
-          "amqps://ecommercebroker:${pwd}@${ep}",
-          {
-           "pwd": {
-            "Ref": "MqPassword"
-           },
-           "ep": {
-            "Fn::Select": [
-             0,
-             {
-              "Fn::GetAtt": [
-               "MqBroker",
-               "AmqpEndpoints"
-              ]
-             }
-            ]
-           }
-          }
          ]
         }
        },
@@ -4733,10 +4274,10 @@
       ],
       "Subnets": [
        {
-        "Ref": "VpcPrivateSubnet1Subnet536B997A"
+        "Ref": "VpcPublicSubnet1Subnet5C2D37C4"
        },
        {
-        "Ref": "VpcPrivateSubnet2Subnet3788AAA1"
+        "Ref": "VpcPublicSubnet2Subnet691E08A3"
        }
       ]
      }
@@ -4857,30 +4398,6 @@
          "Fn::GetAtt": [
           "Redis",
           "Endpoint.Address"
-         ]
-        }
-       },
-       {
-        "Name": "MQ_ENDPOINT",
-        "Value": {
-         "Fn::Sub": [
-          "amqps://ecommercebroker:${pwd}@${ep}",
-          {
-           "pwd": {
-            "Ref": "MqPassword"
-           },
-           "ep": {
-            "Fn::Select": [
-             0,
-             {
-              "Fn::GetAtt": [
-               "MqBroker",
-               "AmqpEndpoints"
-              ]
-             }
-            ]
-           }
-          }
          ]
         }
        },
@@ -5081,10 +4598,10 @@
       ],
       "Subnets": [
        {
-        "Ref": "VpcPrivateSubnet1Subnet536B997A"
+        "Ref": "VpcPublicSubnet1Subnet5C2D37C4"
        },
        {
-        "Ref": "VpcPrivateSubnet2Subnet3788AAA1"
+        "Ref": "VpcPublicSubnet2Subnet691E08A3"
        }
       ]
      }
@@ -5153,11 +4670,22 @@
   "CDKMetadata": {
    "Type": "AWS::CDK::Metadata",
    "Properties": {
-    "Analytics": "v2:deflate64:H4sIAAAAAAAA/31T0W7bMAz8lr2r2pZiH5A4XRcg6Iw46GtBy4zDRpY8UUqQCf73wXbsOGkxwADvjrR9FKmZnP14lN+/wIkfVHF40JTLmHlQB5HsTAoOKvToBJz4LaKayfhaqzb1miYiDbkmlYXcoG+1K9rY4HELucarftXmzFYReLJmLG7B0yptwwv4Z/B4grNIHR3B4/XDK+PRGRwLeicXNvce1L5C40WGKjjy52dnQ915+K+wMqVDZrGGYNR+i1Wtofd0qzSCUTn0XIGBEp2MWccvH2xRH7bgSvQTQ2PBfaYRrmAZl+AhB8aVYQ9Goeh7Hu0uFx+EobQRqIE9KVB7lHE88Emr7ohOI3PSljQCKvhrTfVHJjuzcPaATmio8gJkzMiUGr01P4NR3YRGkOzMFKfoKmImaxpBUMmYWk2qG8kFbWw//yEOhlNnd6Tbw3x8A2b0LOdtEPwoF0Ed0C+AUdgaDSM4tWd0R1Io49JWQN3fe9QIVCxjogO3W5rszEeYQA2K/Dl19kgFusn2sZhzeZ/vXr3XtsCHJe7I0ND+vWKNBzLoJtqTmmW982EK1E4LgresQJMpZZwHb7OejPP6oK1ph+qsNP6ytruYN0Ij2LCMWchZOaoHgzd8a2vq7m0H2jXuzBTEyh7RnWW8XLWl4ReokGvoXX8mf9YUKifjBmvL5K3rtuDKxg3VFoocNBhFpjzOZJzXtSbVDWNtoVh0uX4GN3xaR+zRXGoGPMn3F2w8zAlthLYly7i217MecNOIDbINTqFQgb2t3tyFs5yfOOm0seSett1ecLfKmYeSTNkmfgdfB98IYwuU7/z1OPsm2+fLOxM9uGA8VSg3ffwH66zwW5AFAAA="
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/31T227bMAz9lr2r2pZiH5DL1hUItiAO+lrQMuOwkSVDpBIEhv99sOw4bloMMMBzDmmJN8307Mej/v4FzvxgiuODpVw3mYA5Kjjza4NmppuX2qjl3r1slmoTc0smi7lD6bQb2voouIPc4k2/aXNmbwiEvBuD1SbQCQRvZzw7weBQnkDwDJfh0oHNRcAcKnSiMjQxkFyego91uu6/wrMrAzKrNURnDjusaguS0nyvtIrRBBSuwEGJQTdZ4sOBHerNDkKJMkloDLj3tCoUrJsVCOTA+OxYwBlUfc1juqvFB+Ea2iq0wEIGzAF1M/Z2Umo4YbDIvOxCWmWhygvQTUautCje/YrOpM6PYLl3U7zBUBEzedcqgko3G2/JpP4PaOv7uV7tNbtN8HuyXeceX4EZhfW8M4of9SKaI8oCGJWv0TFCMAfGcCKDuln5Cijd3qNWoWHdLG1kwdDpH+ESajAkl03wJyowTLaK1ZzLe3/69V7bAR9XuCdH1/LvFe8EyGGYaD/NLOszv7acutFAFM8GLLlSN/MoPuvJOJwP2pr2aC7G4m/vj2kFp0Kr2LFuspizCVRfE3zHd76m9B4T6HY2JVMQG3/CcNHN8K5Wjv9AhVxDn/Vn8mdFoQm62WLtmcSHtAU3Nq6j9VDkYMEZcuVpppt5XVsyaRhrD8Ui+foZvOPTOGJBN8Rc8cTfv6axmRPaKutL1s3a33p9xW2rtsg+BoPKRBZfvYaBs56feZm0MeSedtUOOK1yJlCSK1MHIUCFw07+jVJHaZXzBeo3/nqafdPd9+WNiR5CdEIV6m1v/wG7Qk2oaAUAAA=="
    },
    "Metadata": {
     "aws:cdk:path": "ECommerceStack/CDKMetadata/Default"
    }
+  }
+ },
+ "Parameters": {
+  "SsmParameterValueawsserviceecsoptimizedamiamazonlinux2023recommendedimageidC96584B6F00A464EAD1953AFF4B05118Parameter": {
+   "Type": "AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>",
+   "Default": "/aws/service/ecs/optimized-ami/amazon-linux-2023/recommended/image_id"
+  },
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
   }
  },
  "Outputs": {
