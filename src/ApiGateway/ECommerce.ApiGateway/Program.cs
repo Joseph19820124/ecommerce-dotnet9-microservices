@@ -4,11 +4,6 @@ using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
-if (!builder.Environment.IsDevelopment())
-{
-        $"/ecommerce/{builder.Environment.EnvironmentName}/gateway",
-        TimeSpan.FromMinutes(5));
-}
 
 builder.Host.UseSerilog((ctx, cfg) =>
     cfg.ReadFrom.Configuration(ctx.Configuration)
@@ -28,6 +23,7 @@ builder.Services
     });
 
 builder.Services.AddAuthorization();
+builder.Services.AddHealthChecks();
 
 builder.Services.AddOpenTelemetry()
     .WithTracing(tracing => tracing

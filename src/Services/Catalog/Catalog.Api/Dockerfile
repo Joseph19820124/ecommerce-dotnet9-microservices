@@ -13,7 +13,7 @@ COPY src/SharedKernel/ SharedKernel/
 COPY src/Services/Catalog/ Services/Catalog/
 
 RUN dotnet publish Services/Catalog/Catalog.Api/Catalog.Api.csproj \
-    -c Release -o /app/publish --no-restore
+    -c Release -o /app/publish
 
 FROM mcr.microsoft.com/dotnet/aspnet:9.0
 WORKDIR /app

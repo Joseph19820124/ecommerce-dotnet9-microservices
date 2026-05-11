@@ -1,5 +1,6 @@
 using Carter;
 using ECommerce.Catalog.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 using ECommerce.SharedKernel.Extensions;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
@@ -31,6 +32,7 @@ builder.Services.AddAuthorization(opts =>
     opts.AddPolicy("AdminPolicy", p => p.RequireClaim("role", "admin")));
 
 builder.Services.AddCatalogInfrastructure(builder.Configuration);
+builder.Services.AddHealthChecks();
 
 // AWS X-Ray via OpenTelemetry OTLP → X-Ray daemon sidecar (UDP 2000)
 builder.Services.AddOpenTelemetry()
@@ -47,6 +49,13 @@ builder.Services.AddOpenTelemetry()
                     ?? "http://localhost:4317")));
 
 var app = builder.Build();
+
+// Auto-migrate on startup (dev only)
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<ECommerce.Catalog.Infrastructure.Persistence.CatalogDbContext>();
+    await db.Database.MigrateAsync();
+}
 
 var supportedCultures = new[] { "en-US", "zh-CN" };
 app.UseRequestLocalization(new RequestLocalizationOptions()

@@ -1,0 +1,16 @@
+/home/joseph_siyi/ECommerce/src/Services/Catalog/Catalog.Domain/bin/Debug/net9.0/Catalog.Domain.deps.json
+/home/joseph_siyi/ECommerce/src/Services/Catalog/Catalog.Domain/bin/Debug/net9.0/Catalog.Domain.dll
+/home/joseph_siyi/ECommerce/src/Services/Catalog/Catalog.Domain/bin/Debug/net9.0/Catalog.Domain.pdb
+/home/joseph_siyi/ECommerce/src/Services/Catalog/Catalog.Domain/bin/Debug/net9.0/ECommerce.SharedKernel.dll
+/home/joseph_siyi/ECommerce/src/Services/Catalog/Catalog.Domain/bin/Debug/net9.0/ECommerce.SharedKernel.pdb
+/home/joseph_siyi/ECommerce/src/Services/Catalog/Catalog.Domain/obj/Debug/net9.0/Catalog.Domain.csproj.AssemblyReference.cache
+/home/joseph_siyi/ECommerce/src/Services/Catalog/Catalog.Domain/obj/Debug/net9.0/Catalog.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/joseph_siyi/ECommerce/src/Services/Catalog/Catalog.Domain/obj/Debug/net9.0/Catalog.Domain.AssemblyInfoInputs.cache
+/home/joseph_siyi/ECommerce/src/Services/Catalog/Catalog.Domain/obj/Debug/net9.0/Catalog.Domain.AssemblyInfo.cs
+/home/joseph_siyi/ECommerce/src/Services/Catalog/Catalog.Domain/obj/Debug/net9.0/Catalog.Domain.csproj.CoreCompileInputs.cache
+/home/joseph_siyi/ECommerce/src/Services/Catalog/Catalog.Domain/obj/Debug/net9.0/Catalog.Domain.sourcelink.json
+/home/joseph_siyi/ECommerce/src/Services/Catalog/Catalog.Domain/obj/Debug/net9.0/Catalog..A0AFAC00.Up2Date
+/home/joseph_siyi/ECommerce/src/Services/Catalog/Catalog.Domain/obj/Debug/net9.0/Catalog.Domain.dll
+/home/joseph_siyi/ECommerce/src/Services/Catalog/Catalog.Domain/obj/Debug/net9.0/refint/Catalog.Domain.dll
+/home/joseph_siyi/ECommerce/src/Services/Catalog/Catalog.Domain/obj/Debug/net9.0/Catalog.Domain.pdb
+/home/joseph_siyi/ECommerce/src/Services/Catalog/Catalog.Domain/obj/Debug/net9.0/ref/Catalog.Domain.dll

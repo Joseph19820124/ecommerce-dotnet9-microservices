@@ -1,0 +1,13 @@
+/home/joseph_siyi/ECommerce/src/SharedKernel/ECommerce.SharedKernel/bin/Debug/net9.0/ECommerce.SharedKernel.deps.json
+/home/joseph_siyi/ECommerce/src/SharedKernel/ECommerce.SharedKernel/bin/Debug/net9.0/ECommerce.SharedKernel.dll
+/home/joseph_siyi/ECommerce/src/SharedKernel/ECommerce.SharedKernel/bin/Debug/net9.0/ECommerce.SharedKernel.pdb
+/home/joseph_siyi/ECommerce/src/SharedKernel/ECommerce.SharedKernel/obj/Debug/net9.0/ECommerce.SharedKernel.csproj.AssemblyReference.cache
+/home/joseph_siyi/ECommerce/src/SharedKernel/ECommerce.SharedKernel/obj/Debug/net9.0/ECommerce.SharedKernel.GeneratedMSBuildEditorConfig.editorconfig
+/home/joseph_siyi/ECommerce/src/SharedKernel/ECommerce.SharedKernel/obj/Debug/net9.0/ECommerce.SharedKernel.AssemblyInfoInputs.cache
+/home/joseph_siyi/ECommerce/src/SharedKernel/ECommerce.SharedKernel/obj/Debug/net9.0/ECommerce.SharedKernel.AssemblyInfo.cs
+/home/joseph_siyi/ECommerce/src/SharedKernel/ECommerce.SharedKernel/obj/Debug/net9.0/ECommerce.SharedKernel.csproj.CoreCompileInputs.cache
+/home/joseph_siyi/ECommerce/src/SharedKernel/ECommerce.SharedKernel/obj/Debug/net9.0/ECommerce.SharedKernel.sourcelink.json
+/home/joseph_siyi/ECommerce/src/SharedKernel/ECommerce.SharedKernel/obj/Debug/net9.0/ECommerce.SharedKernel.dll
+/home/joseph_siyi/ECommerce/src/SharedKernel/ECommerce.SharedKernel/obj/Debug/net9.0/refint/ECommerce.SharedKernel.dll
+/home/joseph_siyi/ECommerce/src/SharedKernel/ECommerce.SharedKernel/obj/Debug/net9.0/ECommerce.SharedKernel.pdb
+/home/joseph_siyi/ECommerce/src/SharedKernel/ECommerce.SharedKernel/obj/Debug/net9.0/ref/ECommerce.SharedKernel.dll
