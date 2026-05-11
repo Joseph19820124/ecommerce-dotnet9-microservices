@@ -12,7 +12,7 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.3" />
     <PackageReference Include="OpenSearch.Client" Version="1.9.0" />
     <PackageReference Include="StackExchange.Redis" Version="2.8.25" />
-    <PackageReference Include="MassTransit.RabbitMQ" Version="8.4.1" />
+    <PackageReference Include="MassTransit.AmazonSQS" Version="8.4.1" />
     <PackageReference Include="MassTransit.EntityFrameworkCore" Version="8.4.1" />
   </ItemGroup>
   <ItemGroup>

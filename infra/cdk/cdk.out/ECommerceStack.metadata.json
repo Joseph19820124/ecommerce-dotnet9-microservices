@@ -1,0 +1,2466 @@
+{
+  "/ECommerceStack": [
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    },
+    {
+      "type": "aws:cdk:stack-tags",
+      "data": [
+        {
+          "key": "Environment",
+          "value": "dev"
+        },
+        {
+          "key": "ManagedBy",
+          "value": "CDK"
+        },
+        {
+          "key": "Project",
+          "value": "ECommerce"
+        }
+      ]
+    }
+  ],
+  "/ECommerceStack/MqPassword": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MqPassword"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:55:29)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/RedisSubnetGroup": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "RedisSubnetGroup"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:139:30)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Redis": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Redis"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:145:19)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/MqSecretCfn": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MqSecretCfn"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:157:22)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/MqBroker": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MqBroker"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:165:22)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/OpenSearchSLR": [
+    {
+      "type": "aws:cdk:warning",
+      "data": "installLatestAwsSdk was not specified, and defaults to true. You probably do not want this. Set the global context flag '@aws-cdk/customresources:installLatestAwsSdkDefault' to false to switch this behavior off project-wide, or set the property explicitly to true if you know you need to call APIs that are not in Lambda's built-in SDK version. [ack: @aws-cdk/custom-resources:installLatestAwsSdkNotSpecified]",
+      "trace": [
+        "Annotations.addMessage (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/annotations.js:1:2399)",
+        "Annotations.addWarningV2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1087)",
+        "new AwsCustomResource2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/custom-resources/lib/aws-custom-resource/aws-custom-resource.js:1:8694)",
+        "new AwsCustomResource2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/prop-injectable.js:1:855)",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:182:27)",
+        "Object.<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "Module._compile (node:internal/modules/cjs/loader:1521:14)",
+        "Module.m._compile (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/index.ts:1618:23)",
+        "Module._extensions..js (node:internal/modules/cjs/loader:1623:10)",
+        "Object.require.extensions.<computed> [as .ts] (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/index.ts:1621:12)",
+        "Module.load (node:internal/modules/cjs/loader:1266:32)",
+        "Function.Module._load (node:internal/modules/cjs/loader:1091:12)",
+        "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)",
+        "phase4 (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:649:14)",
+        "bootstrap (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:95:10)",
+        "main (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:55:10)",
+        "Object.<anonymous> (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:800:3)",
+        "Module._compile (node:internal/modules/cjs/loader:1521:14)",
+        "Object.Module._extensions..js (node:internal/modules/cjs/loader:1623:10)",
+        "Module.load (node:internal/modules/cjs/loader:1266:32)",
+        "Function.Module._load (node:internal/modules/cjs/loader:1091:12)",
+        "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)",
+        "node:internal/main/run_main_module:28:49"
+      ]
+    }
+  ],
+  "/ECommerceStack/AWS679f53fac002430cb0da5b7982bd2287": [
+    {
+      "type": "aws:cdk:is-custom-resource-handler-singleton",
+      "data": true
+    },
+    {
+      "type": "aws:cdk:is-custom-resource-handler-runtime-family",
+      "data": 0
+    }
+  ],
+  "/ECommerceStack/OpenSearch": [
+    {
+      "type": "aws:cdk:hasPhysicalName",
+      "data": "ecommerce-dev-search"
+    }
+  ],
+  "/ECommerceStack/SsmParameterValue:--aws--service--ecs--optimized-ami--amazon-linux-2023--recommended--image_id:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SsmParameterValueawsserviceecsoptimizedamiamazonlinux2023recommendedimageidC96584B6F00A464EAD1953AFF4B05118Parameter"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new LaunchTemplate2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:233:28)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/EcsAsg": [
+    {
+      "type": "aws:cdk:warning",
+      "data": "desiredCapacity has been configured. Be aware this will reset the size of your AutoScalingGroup on every deployment. See https://github.com/aws/aws-cdk/issues/5215 [ack: @aws-cdk/aws-autoscaling:desiredCapacitySet]",
+      "trace": [
+        "Annotations.addMessage (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/annotations.js:1:2399)",
+        "Annotations.addWarningV2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1087)",
+        "new AutoScalingGroup2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-autoscaling/lib/auto-scaling-group.js:1:26952)",
+        "new AutoScalingGroup2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/no-box-stack-traces.js:1:345)",
+        "new AutoScalingGroup2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/prop-injectable.js:1:855)",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:242:17)",
+        "Object.<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "Module._compile (node:internal/modules/cjs/loader:1521:14)",
+        "Module.m._compile (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/index.ts:1618:23)",
+        "Module._extensions..js (node:internal/modules/cjs/loader:1623:10)",
+        "Object.require.extensions.<computed> [as .ts] (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/index.ts:1621:12)",
+        "Module.load (node:internal/modules/cjs/loader:1266:32)",
+        "Function.Module._load (node:internal/modules/cjs/loader:1091:12)",
+        "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)",
+        "phase4 (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:649:14)",
+        "bootstrap (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:95:10)",
+        "main (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:55:10)",
+        "Object.<anonymous> (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:800:3)",
+        "Module._compile (node:internal/modules/cjs/loader:1521:14)",
+        "Object.Module._extensions..js (node:internal/modules/cjs/loader:1623:10)",
+        "Module.load (node:internal/modules/cjs/loader:1266:32)",
+        "Function.Module._load (node:internal/modules/cjs/loader:1091:12)",
+        "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)",
+        "node:internal/main/run_main_module:28:49"
+      ]
+    }
+  ],
+  "/ECommerceStack/Svc-api-gateway": [
+    {
+      "type": "aws:cdk:warning",
+      "data": "minHealthyPercent has not been configured so the default value of 50% is used. The number of running tasks will decrease below the desired count during deployments etc. See https://github.com/aws/aws-cdk/issues/31705 [ack: @aws-cdk/aws-ecs:minHealthyPercent]",
+      "trace": [
+        "Annotations.addMessage (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/annotations.js:1:2399)",
+        "Annotations.addWarningV2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1087)",
+        "new BaseService2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ecs/lib/base/base-service.js:1:14346)",
+        "new BaseService2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/no-box-stack-traces.js:1:345)",
+        "new Ec2Service2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ecs/lib/ec2/ec2-service.js:1:7892)",
+        "new Ec2Service2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/prop-injectable.js:1:855)",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:407:26)",
+        "Object.<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "Module._compile (node:internal/modules/cjs/loader:1521:14)",
+        "Module.m._compile (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/index.ts:1618:23)",
+        "Module._extensions..js (node:internal/modules/cjs/loader:1623:10)",
+        "Object.require.extensions.<computed> [as .ts] (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/index.ts:1621:12)",
+        "Module.load (node:internal/modules/cjs/loader:1266:32)",
+        "Function.Module._load (node:internal/modules/cjs/loader:1091:12)",
+        "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)",
+        "phase4 (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:649:14)",
+        "bootstrap (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:95:10)",
+        "main (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:55:10)",
+        "Object.<anonymous> (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:800:3)",
+        "Module._compile (node:internal/modules/cjs/loader:1521:14)",
+        "Object.Module._extensions..js (node:internal/modules/cjs/loader:1623:10)",
+        "Module.load (node:internal/modules/cjs/loader:1266:32)",
+        "Function.Module._load (node:internal/modules/cjs/loader:1091:12)",
+        "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)",
+        "node:internal/main/run_main_module:28:49"
+      ]
+    }
+  ],
+  "/ECommerceStack/Svc-catalog-api": [
+    {
+      "type": "aws:cdk:warning",
+      "data": "minHealthyPercent has not been configured so the default value of 50% is used. The number of running tasks will decrease below the desired count during deployments etc. See https://github.com/aws/aws-cdk/issues/31705 [ack: @aws-cdk/aws-ecs:minHealthyPercent]",
+      "trace": [
+        "Annotations.addMessage (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/annotations.js:1:2399)",
+        "Annotations.addWarningV2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1087)",
+        "new BaseService2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ecs/lib/base/base-service.js:1:14346)",
+        "new BaseService2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/no-box-stack-traces.js:1:345)",
+        "new Ec2Service2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ecs/lib/ec2/ec2-service.js:1:7892)",
+        "new Ec2Service2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/prop-injectable.js:1:855)",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:407:26)",
+        "Object.<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "Module._compile (node:internal/modules/cjs/loader:1521:14)",
+        "Module.m._compile (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/index.ts:1618:23)",
+        "Module._extensions..js (node:internal/modules/cjs/loader:1623:10)",
+        "Object.require.extensions.<computed> [as .ts] (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/index.ts:1621:12)",
+        "Module.load (node:internal/modules/cjs/loader:1266:32)",
+        "Function.Module._load (node:internal/modules/cjs/loader:1091:12)",
+        "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)",
+        "phase4 (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:649:14)",
+        "bootstrap (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:95:10)",
+        "main (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:55:10)",
+        "Object.<anonymous> (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:800:3)",
+        "Module._compile (node:internal/modules/cjs/loader:1521:14)",
+        "Object.Module._extensions..js (node:internal/modules/cjs/loader:1623:10)",
+        "Module.load (node:internal/modules/cjs/loader:1266:32)",
+        "Function.Module._load (node:internal/modules/cjs/loader:1091:12)",
+        "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)",
+        "node:internal/main/run_main_module:28:49"
+      ]
+    }
+  ],
+  "/ECommerceStack/Svc-order-api": [
+    {
+      "type": "aws:cdk:warning",
+      "data": "minHealthyPercent has not been configured so the default value of 50% is used. The number of running tasks will decrease below the desired count during deployments etc. See https://github.com/aws/aws-cdk/issues/31705 [ack: @aws-cdk/aws-ecs:minHealthyPercent]",
+      "trace": [
+        "Annotations.addMessage (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/annotations.js:1:2399)",
+        "Annotations.addWarningV2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1087)",
+        "new BaseService2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ecs/lib/base/base-service.js:1:14346)",
+        "new BaseService2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/no-box-stack-traces.js:1:345)",
+        "new Ec2Service2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ecs/lib/ec2/ec2-service.js:1:7892)",
+        "new Ec2Service2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/prop-injectable.js:1:855)",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:407:26)",
+        "Object.<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "Module._compile (node:internal/modules/cjs/loader:1521:14)",
+        "Module.m._compile (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/index.ts:1618:23)",
+        "Module._extensions..js (node:internal/modules/cjs/loader:1623:10)",
+        "Object.require.extensions.<computed> [as .ts] (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/index.ts:1621:12)",
+        "Module.load (node:internal/modules/cjs/loader:1266:32)",
+        "Function.Module._load (node:internal/modules/cjs/loader:1091:12)",
+        "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)",
+        "phase4 (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:649:14)",
+        "bootstrap (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:95:10)",
+        "main (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:55:10)",
+        "Object.<anonymous> (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:800:3)",
+        "Module._compile (node:internal/modules/cjs/loader:1521:14)",
+        "Object.Module._extensions..js (node:internal/modules/cjs/loader:1623:10)",
+        "Module.load (node:internal/modules/cjs/loader:1266:32)",
+        "Function.Module._load (node:internal/modules/cjs/loader:1091:12)",
+        "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)",
+        "node:internal/main/run_main_module:28:49"
+      ]
+    }
+  ],
+  "/ECommerceStack/Svc-identity-api": [
+    {
+      "type": "aws:cdk:warning",
+      "data": "minHealthyPercent has not been configured so the default value of 50% is used. The number of running tasks will decrease below the desired count during deployments etc. See https://github.com/aws/aws-cdk/issues/31705 [ack: @aws-cdk/aws-ecs:minHealthyPercent]",
+      "trace": [
+        "Annotations.addMessage (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/annotations.js:1:2399)",
+        "Annotations.addWarningV2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1087)",
+        "new BaseService2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ecs/lib/base/base-service.js:1:14346)",
+        "new BaseService2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/no-box-stack-traces.js:1:345)",
+        "new Ec2Service2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ecs/lib/ec2/ec2-service.js:1:7892)",
+        "new Ec2Service2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/prop-injectable.js:1:855)",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:407:26)",
+        "Object.<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "Module._compile (node:internal/modules/cjs/loader:1521:14)",
+        "Module.m._compile (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/index.ts:1618:23)",
+        "Module._extensions..js (node:internal/modules/cjs/loader:1623:10)",
+        "Object.require.extensions.<computed> [as .ts] (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/index.ts:1621:12)",
+        "Module.load (node:internal/modules/cjs/loader:1266:32)",
+        "Function.Module._load (node:internal/modules/cjs/loader:1091:12)",
+        "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)",
+        "phase4 (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:649:14)",
+        "bootstrap (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:95:10)",
+        "main (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:55:10)",
+        "Object.<anonymous> (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:800:3)",
+        "Module._compile (node:internal/modules/cjs/loader:1521:14)",
+        "Object.Module._extensions..js (node:internal/modules/cjs/loader:1623:10)",
+        "Module.load (node:internal/modules/cjs/loader:1266:32)",
+        "Function.Module._load (node:internal/modules/cjs/loader:1091:12)",
+        "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)",
+        "node:internal/main/run_main_module:28:49"
+      ]
+    }
+  ],
+  "/ECommerceStack/Svc-inventory-api": [
+    {
+      "type": "aws:cdk:warning",
+      "data": "minHealthyPercent has not been configured so the default value of 50% is used. The number of running tasks will decrease below the desired count during deployments etc. See https://github.com/aws/aws-cdk/issues/31705 [ack: @aws-cdk/aws-ecs:minHealthyPercent]",
+      "trace": [
+        "Annotations.addMessage (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/annotations.js:1:2399)",
+        "Annotations.addWarningV2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1087)",
+        "new BaseService2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ecs/lib/base/base-service.js:1:14346)",
+        "new BaseService2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/no-box-stack-traces.js:1:345)",
+        "new Ec2Service2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ecs/lib/ec2/ec2-service.js:1:7892)",
+        "new Ec2Service2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/prop-injectable.js:1:855)",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:407:26)",
+        "Object.<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "Module._compile (node:internal/modules/cjs/loader:1521:14)",
+        "Module.m._compile (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/index.ts:1618:23)",
+        "Module._extensions..js (node:internal/modules/cjs/loader:1623:10)",
+        "Object.require.extensions.<computed> [as .ts] (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/index.ts:1621:12)",
+        "Module.load (node:internal/modules/cjs/loader:1266:32)",
+        "Function.Module._load (node:internal/modules/cjs/loader:1091:12)",
+        "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)",
+        "phase4 (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:649:14)",
+        "bootstrap (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:95:10)",
+        "main (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:55:10)",
+        "Object.<anonymous> (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:800:3)",
+        "Module._compile (node:internal/modules/cjs/loader:1521:14)",
+        "Object.Module._extensions..js (node:internal/modules/cjs/loader:1623:10)",
+        "Module.load (node:internal/modules/cjs/loader:1266:32)",
+        "Function.Module._load (node:internal/modules/cjs/loader:1091:12)",
+        "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)",
+        "node:internal/main/run_main_module:28:49"
+      ]
+    }
+  ],
+  "/ECommerceStack/Svc-payment-api": [
+    {
+      "type": "aws:cdk:warning",
+      "data": "minHealthyPercent has not been configured so the default value of 50% is used. The number of running tasks will decrease below the desired count during deployments etc. See https://github.com/aws/aws-cdk/issues/31705 [ack: @aws-cdk/aws-ecs:minHealthyPercent]",
+      "trace": [
+        "Annotations.addMessage (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/annotations.js:1:2399)",
+        "Annotations.addWarningV2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1087)",
+        "new BaseService2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ecs/lib/base/base-service.js:1:14346)",
+        "new BaseService2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/no-box-stack-traces.js:1:345)",
+        "new Ec2Service2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ecs/lib/ec2/ec2-service.js:1:7892)",
+        "new Ec2Service2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/prop-injectable.js:1:855)",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:407:26)",
+        "Object.<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "Module._compile (node:internal/modules/cjs/loader:1521:14)",
+        "Module.m._compile (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/index.ts:1618:23)",
+        "Module._extensions..js (node:internal/modules/cjs/loader:1623:10)",
+        "Object.require.extensions.<computed> [as .ts] (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/index.ts:1621:12)",
+        "Module.load (node:internal/modules/cjs/loader:1266:32)",
+        "Function.Module._load (node:internal/modules/cjs/loader:1091:12)",
+        "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)",
+        "phase4 (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:649:14)",
+        "bootstrap (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:95:10)",
+        "main (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:55:10)",
+        "Object.<anonymous> (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:800:3)",
+        "Module._compile (node:internal/modules/cjs/loader:1521:14)",
+        "Object.Module._extensions..js (node:internal/modules/cjs/loader:1623:10)",
+        "Module.load (node:internal/modules/cjs/loader:1266:32)",
+        "Function.Module._load (node:internal/modules/cjs/loader:1091:12)",
+        "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)",
+        "node:internal/main/run_main_module:28:49"
+      ]
+    }
+  ],
+  "/ECommerceStack/Svc-notification-api": [
+    {
+      "type": "aws:cdk:warning",
+      "data": "minHealthyPercent has not been configured so the default value of 50% is used. The number of running tasks will decrease below the desired count during deployments etc. See https://github.com/aws/aws-cdk/issues/31705 [ack: @aws-cdk/aws-ecs:minHealthyPercent]",
+      "trace": [
+        "Annotations.addMessage (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/annotations.js:1:2399)",
+        "Annotations.addWarningV2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1087)",
+        "new BaseService2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ecs/lib/base/base-service.js:1:14346)",
+        "new BaseService2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/no-box-stack-traces.js:1:345)",
+        "new Ec2Service2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ecs/lib/ec2/ec2-service.js:1:7892)",
+        "new Ec2Service2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/prop-injectable.js:1:855)",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:407:26)",
+        "Object.<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "Module._compile (node:internal/modules/cjs/loader:1521:14)",
+        "Module.m._compile (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/index.ts:1618:23)",
+        "Module._extensions..js (node:internal/modules/cjs/loader:1623:10)",
+        "Object.require.extensions.<computed> [as .ts] (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/index.ts:1621:12)",
+        "Module.load (node:internal/modules/cjs/loader:1266:32)",
+        "Function.Module._load (node:internal/modules/cjs/loader:1091:12)",
+        "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)",
+        "phase4 (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:649:14)",
+        "bootstrap (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:95:10)",
+        "main (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:55:10)",
+        "Object.<anonymous> (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:800:3)",
+        "Module._compile (node:internal/modules/cjs/loader:1521:14)",
+        "Object.Module._extensions..js (node:internal/modules/cjs/loader:1623:10)",
+        "Module.load (node:internal/modules/cjs/loader:1266:32)",
+        "Function.Module._load (node:internal/modules/cjs/loader:1091:12)",
+        "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)",
+        "node:internal/main/run_main_module:28:49"
+      ]
+    }
+  ],
+  "/ECommerceStack/Svc-blazor-frontend": [
+    {
+      "type": "aws:cdk:warning",
+      "data": "minHealthyPercent has not been configured so the default value of 50% is used. The number of running tasks will decrease below the desired count during deployments etc. See https://github.com/aws/aws-cdk/issues/31705 [ack: @aws-cdk/aws-ecs:minHealthyPercent]",
+      "trace": [
+        "Annotations.addMessage (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/annotations.js:1:2399)",
+        "Annotations.addWarningV2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1087)",
+        "new BaseService2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ecs/lib/base/base-service.js:1:14346)",
+        "new BaseService2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/no-box-stack-traces.js:1:345)",
+        "new Ec2Service2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ecs/lib/ec2/ec2-service.js:1:7892)",
+        "new Ec2Service2 (/home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/core/lib/prop-injectable.js:1:855)",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:407:26)",
+        "Object.<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "Module._compile (node:internal/modules/cjs/loader:1521:14)",
+        "Module.m._compile (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/index.ts:1618:23)",
+        "Module._extensions..js (node:internal/modules/cjs/loader:1623:10)",
+        "Object.require.extensions.<computed> [as .ts] (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/index.ts:1621:12)",
+        "Module.load (node:internal/modules/cjs/loader:1266:32)",
+        "Function.Module._load (node:internal/modules/cjs/loader:1091:12)",
+        "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)",
+        "phase4 (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:649:14)",
+        "bootstrap (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:95:10)",
+        "main (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:55:10)",
+        "Object.<anonymous> (/home/joseph_siyi/.nvm/versions/node/v20.20.2/lib/node_modules/ts-node/src/bin.ts:800:3)",
+        "Module._compile (node:internal/modules/cjs/loader:1521:14)",
+        "Object.Module._extensions..js (node:internal/modules/cjs/loader:1623:10)",
+        "Module.load (node:internal/modules/cjs/loader:1266:32)",
+        "Function.Module._load (node:internal/modules/cjs/loader:1091:12)",
+        "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)",
+        "node:internal/main/run_main_module:28:49"
+      ]
+    }
+  ],
+  "/ECommerceStack/AlbDns": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AlbDns"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:449:5)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/DbEndpoint": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DbEndpoint"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:450:5)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/RedisEndpoint": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "RedisEndpoint"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:451:5)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/OpenSearchEp": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "OpenSearchEp"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:452:5)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/ClusterName": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ClusterName"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:453:5)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/DbSecretArn": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DbSecretArn"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:454:5)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/BootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "BootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:18:5)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/CheckBootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CheckBootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:18:5)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Vpc/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Vpc8378EB38"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:66:17)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Vpc/IGW": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcIGWD7BA715C"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:66:17)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Vpc/VPCGW": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcVPCGWBF912B6E"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:66:17)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/AlbSg/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AlbSg1155C1BE"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new SecurityGroup2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:80:19)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/EcsSg/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsSg17B4B0B3"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new SecurityGroup2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:84:19)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/EcsSg/from ECommerceStackAlbSg0D1EF7D1:8080": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsSgfromECommerceStackAlbSg0D1EF7D180804738520E"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:85:11)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/EcsSg/from ECommerceStackEcsSg57F94E63:ALL PORTS": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsSgfromECommerceStackEcsSg57F94E63ALLPORTS82BC3908"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:86:11)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/RdsSg/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "RdsSg7F9F43B6"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new SecurityGroup2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:88:19)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/RdsSg/from ECommerceStackEcsSg57F94E63:5432": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "RdsSgfromECommerceStackEcsSg57F94E6354321FF82681"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:89:11)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/RedisSg/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "RedisSgFB48DCCD"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new SecurityGroup2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:91:21)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/RedisSg/from ECommerceStackEcsSg57F94E63:6379": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "RedisSgfromECommerceStackEcsSg57F94E63637991BBAE33"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:92:13)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/MqSg/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MqSg5921CE75"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new SecurityGroup2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:94:18)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/MqSg/from ECommerceStackEcsSg57F94E63:5671": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MqSgfromECommerceStackEcsSg57F94E635671A446DD7A"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:95:10)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/OsSg/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "OsSg89C9FF77"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new SecurityGroup2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:97:26)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/OsSg/from ECommerceStackEcsSg57F94E63:443": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "OsSgfromECommerceStackEcsSg57F94E634434F228F53"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:98:18)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/DbSecret/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DbSecret685A0FA5"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Secret2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:103:22)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/RedisAuthSecret/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "RedisAuthSecretF35EA0A2"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Secret2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:112:29)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Rds/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Rds34D05673"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new DatabaseInstance2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:121:24)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/AWS679f53fac002430cb0da5b7982bd2287/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AWS679f53fac002430cb0da5b7982bd22872D164C4C"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new AwsCustomResource2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:182:27)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/OpenSearch/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "OpenSearch587998CD"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Domain2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:193:30)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Cluster/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ClusterEB0386A7"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Cluster2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:218:21)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Cluster/Cluster": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Cluster3DA9CCBA"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:18:5)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/EcsInstanceRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsInstanceRole28EECAF6"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Role2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:225:26)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/EcsLaunchTemplate/Profile": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsLaunchTemplateProfile65A2C189"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new LaunchTemplate2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:233:28)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/EcsLaunchTemplate/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsLaunchTemplate7E4D9BA7"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new LaunchTemplate2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:233:28)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/EcsAsg/ASG": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsAsgASGCEE1FA21"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new AutoScalingGroup2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:242:17)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/AsgCapacityProvider/AsgCapacityProvider": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AsgCapacityProvider760D11D9"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new AsgCapacityProvider2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:253:30)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Namespace/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Namespace9B63B8C8"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new PrivateDnsNamespace2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:260:23)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/EcsExecutionRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsExecutionRoleFD93B7A2"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Role2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:268:27)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/EcsTaskRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsTaskRole8DFA0181"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Role2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:279:22)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Ecr-api-gateway/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Ecrapigateway32E83A60"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Repository2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:311:20)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Ecr-catalog-api/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Ecrcatalogapi2E783DFF"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Repository2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:311:20)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Ecr-order-api/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Ecrorderapi640A283B"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Repository2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:311:20)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Ecr-identity-api/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Ecridentityapi64B0F0B5"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Repository2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:311:20)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Ecr-inventory-api/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Ecrinventoryapi972CC6F5"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Repository2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:311:20)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Ecr-payment-api/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcrpaymentapiC7488CBB"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Repository2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:311:20)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Ecr-notification-api/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcrnotificationapiA3492DA8"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Repository2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:311:20)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Ecr-blazor-frontend/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Ecrblazorfrontend639CE225"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Repository2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:311:20)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Alb/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Alb16C2F182"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new ApplicationLoadBalancer2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:323:17)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Log-api-gateway/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "LogapigatewayACD5DE3F"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new LogGroup2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:345:24)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Task-api-gateway/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Taskapigateway80B7C48B"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new TaskDefinition2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:352:23)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/XrayLog-api-gateway/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "XrayLogapigatewayBE67B86C"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new LogGroup2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:390:21)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Svc-api-gateway/Service": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SvcapigatewayServiceA3091ABD"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Ec2Service2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:407:26)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Log-catalog-api/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Logcatalogapi4984D7AF"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new LogGroup2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:345:24)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Task-catalog-api/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "TaskcatalogapiFF912250"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new TaskDefinition2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:352:23)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/XrayLog-catalog-api/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "XrayLogcatalogapi1BD4A37C"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new LogGroup2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:390:21)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Svc-catalog-api/Service": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SvccatalogapiService7C2EC789"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Ec2Service2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:407:26)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Log-order-api/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Logorderapi06F393EE"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new LogGroup2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:345:24)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Task-order-api/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Taskorderapi93E560B8"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new TaskDefinition2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:352:23)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/XrayLog-order-api/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "XrayLogorderapi55644342"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new LogGroup2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:390:21)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Svc-order-api/Service": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SvcorderapiServiceFBB1DABC"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Ec2Service2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:407:26)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Log-identity-api/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Logidentityapi822687FD"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new LogGroup2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:345:24)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Task-identity-api/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "TaskidentityapiA82CAA65"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new TaskDefinition2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:352:23)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/XrayLog-identity-api/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "XrayLogidentityapiEB37CC12"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new LogGroup2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:390:21)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Svc-identity-api/Service": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SvcidentityapiService57B7AA15"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Ec2Service2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:407:26)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Log-inventory-api/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "LoginventoryapiEFEE3DC9"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new LogGroup2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:345:24)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Task-inventory-api/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Taskinventoryapi75E53D00"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new TaskDefinition2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:352:23)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/XrayLog-inventory-api/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "XrayLoginventoryapi1DCFAA19"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new LogGroup2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:390:21)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Svc-inventory-api/Service": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SvcinventoryapiService10DC6908"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Ec2Service2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:407:26)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Log-payment-api/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Logpaymentapi4979FEE0"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new LogGroup2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:345:24)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Task-payment-api/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "TaskpaymentapiD739B181"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new TaskDefinition2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:352:23)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/XrayLog-payment-api/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "XrayLogpaymentapi77597738"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new LogGroup2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:390:21)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Svc-payment-api/Service": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SvcpaymentapiServiceBD754746"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Ec2Service2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:407:26)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Log-notification-api/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "LognotificationapiE525694F"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new LogGroup2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:345:24)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Task-notification-api/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Tasknotificationapi0FBBC589"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new TaskDefinition2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:352:23)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/XrayLog-notification-api/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "XrayLognotificationapiD58FD309"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new LogGroup2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:390:21)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Svc-notification-api/Service": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SvcnotificationapiService07400340"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Ec2Service2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:407:26)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Log-blazor-frontend/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Logblazorfrontend5466ECE4"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new LogGroup2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:345:24)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Task-blazor-frontend/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Taskblazorfrontend26BD6325"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new TaskDefinition2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:352:23)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/XrayLog-blazor-frontend/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "XrayLogblazorfrontend9B0BE19A"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new LogGroup2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:390:21)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Svc-blazor-frontend/Service": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SvcblazorfrontendService57F0E285"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Ec2Service2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:407:26)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/CDKMetadata/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadata"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:18:5)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Vpc/PublicSubnet1/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcPublicSubnet1Subnet5C2D37C4"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:257 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:66:17)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Vpc/PublicSubnet1/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcPublicSubnet1RouteTable6C95E38E"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:257 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:66:17)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Vpc/PublicSubnet1/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcPublicSubnet1RouteTableAssociation97140677"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:257 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:66:17)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Vpc/PublicSubnet1/DefaultRoute": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcPublicSubnet1DefaultRoute3DA9E72A"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:197 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:66:17)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Vpc/PublicSubnet1/EIP": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcPublicSubnet1EIPD7E02669"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:66:17)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Vpc/PublicSubnet1/NATGateway": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcPublicSubnet1NATGateway4D7517AA"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:66:17)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Vpc/PublicSubnet2/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcPublicSubnet2Subnet691E08A3"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:257 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:66:17)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Vpc/PublicSubnet2/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcPublicSubnet2RouteTable94F7E489"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:257 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:66:17)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Vpc/PublicSubnet2/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcPublicSubnet2RouteTableAssociationDD5762D8"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:257 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:66:17)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Vpc/PublicSubnet2/DefaultRoute": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcPublicSubnet2DefaultRoute97F91067"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:197 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:66:17)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Vpc/PrivateSubnet1/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcPrivateSubnet1Subnet536B997A"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:260 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:66:17)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Vpc/PrivateSubnet1/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcPrivateSubnet1RouteTableB2C5B500"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:260 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:66:17)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Vpc/PrivateSubnet1/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcPrivateSubnet1RouteTableAssociation70C59FA6"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:260 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:66:17)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Vpc/PrivateSubnet1/DefaultRoute": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcPrivateSubnet1DefaultRouteBE02A9ED"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:66:17)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Vpc/PrivateSubnet2/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcPrivateSubnet2Subnet3788AAA1"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:260 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:66:17)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Vpc/PrivateSubnet2/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcPrivateSubnet2RouteTableA678073B"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:260 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:66:17)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Vpc/PrivateSubnet2/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcPrivateSubnet2RouteTableAssociationA89CAD56"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:260 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:66:17)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Vpc/PrivateSubnet2/DefaultRoute": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcPrivateSubnet2DefaultRoute060D2087"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:66:17)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Vpc/IsolatedSubnet1/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcIsolatedSubnet1SubnetE48C5737"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:262 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:66:17)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Vpc/IsolatedSubnet1/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcIsolatedSubnet1RouteTable4771E3E5"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:262 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:66:17)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Vpc/IsolatedSubnet1/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcIsolatedSubnet1RouteTableAssociationD300FCBB"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:262 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:66:17)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Vpc/IsolatedSubnet2/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcIsolatedSubnet2Subnet16364B91"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:262 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:66:17)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Vpc/IsolatedSubnet2/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcIsolatedSubnet2RouteTable1D30AF7D"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:262 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:66:17)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Vpc/IsolatedSubnet2/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcIsolatedSubnet2RouteTableAssociationF7B18CCA"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../home/joseph_siyi/ECommerce/infra/cdk/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:262 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:66:17)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/DbSecret/Attachment/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DbSecretAttachment0609CE05"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new DatabaseInstance2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:121:24)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Rds/SubnetGroup/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "RdsSubnetGroup8D91727A"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new DatabaseInstance2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:121:24)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/OpenSearchSLR/Resource/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "OpenSearchSLR9156BEDF"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new AwsCustomResource2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:182:27)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/OpenSearchSLR/CustomResourcePolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "OpenSearchSLRCustomResourcePolicyBE858E16"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new AwsCustomResource2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:182:27)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/AWS679f53fac002430cb0da5b7982bd2287/ServiceRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new AwsCustomResource2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:182:27)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/OpenSearch/MasterUser/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "OpenSearchMasterUser83D5B361"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Domain2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:193:30)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/EcsInstanceRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsInstanceRoleDefaultPolicy6683DEF9"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:258:13)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/EcsAsg/LifecycleHookDrainHook/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsAsgLifecycleHookDrainHook12839F5C"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:258:13)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/EcsExecutionRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsExecutionRoleDefaultPolicy9114F99B"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.grantRead in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:275:14)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/EcsTaskRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsTaskRoleDefaultPolicy50882C77"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:283:14)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Alb/HttpListener/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AlbHttpListener00C8B33E"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:331:26)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Svc-api-gateway/CloudmapService/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SvcapigatewayCloudmapService9ECB1E0D"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Ec2Service2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:407:26)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Svc-catalog-api/CloudmapService/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SvccatalogapiCloudmapService889D1495"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Ec2Service2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:407:26)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Svc-order-api/CloudmapService/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SvcorderapiCloudmapService3BABB59A"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Ec2Service2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:407:26)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Svc-identity-api/CloudmapService/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SvcidentityapiCloudmapServiceAAE13316"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Ec2Service2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:407:26)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Svc-inventory-api/CloudmapService/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SvcinventoryapiCloudmapService23B29E09"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Ec2Service2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:407:26)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Svc-payment-api/CloudmapService/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SvcpaymentapiCloudmapService00D5F539"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Ec2Service2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:407:26)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Svc-notification-api/CloudmapService/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SvcnotificationapiCloudmapServiceD2C425E2"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Ec2Service2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:407:26)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Svc-blazor-frontend/CloudmapService/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SvcblazorfrontendCloudmapServiceBB0632EB"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Ec2Service2 in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:407:26)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/EcsAsg/DrainECSHook/Function/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsAsgDrainECSHookFunction7E005DA1"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:258:13)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/EcsAsg/DrainECSHook/Function/AllowInvoke:ECommerceStackEcsAsgLifecycleHookDrainHookTopic1480C020": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsAsgDrainECSHookFunctionAllowInvokeECommerceStackEcsAsgLifecycleHookDrainHookTopic1480C0200276CC99"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:258:13)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/EcsAsg/LifecycleHookDrainHook/Topic/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsAsgLifecycleHookDrainHookTopic1319E49F"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:258:13)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/EcsAsg/LifecycleHookDrainHook/Role/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsAsgLifecycleHookDrainHookRole987D696F"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:258:13)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/Alb/HttpListener/Tg-api-gatewayGroup/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AlbHttpListenerTgapigatewayGroupB2A95FA2"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:430:29)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/EcsAsg/DrainECSHook/Function/ServiceRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsAsgDrainECSHookFunctionServiceRoleA912F26E"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:258:13)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/EcsAsg/DrainECSHook/Function/Topic/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsAsgDrainECSHookFunctionTopicCA33AB5A"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:258:13)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/EcsAsg/LifecycleHookDrainHook/Role/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsAsgLifecycleHookDrainHookRoleDefaultPolicy812BD797"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:258:13)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/ECommerceStack/EcsAsg/DrainECSHook/Function/ServiceRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EcsAsgDrainECSHookFunctionServiceRoleDefaultPolicyD36FFD4F"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.<anonymous> in aws-cdk-lib...",
+        "new ECommerceStack (/home/joseph_siyi/ECommerce/infra/cdk/lib/ecommerce-stack.ts:258:13)",
+        "<anonymous> (/home/joseph_siyi/ECommerce/infra/cdk/bin/app.ts:10:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ]
+}

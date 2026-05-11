@@ -328,7 +328,7 @@ export class InfraStack extends cdk.Stack {
       securityGroups: [this.openSearchSg],
       zoneAwareness: {
         enabled: isProd,
-        availabilityZoneCount: isProd ? 3 : 1,
+        availabilityZoneCount: isProd ? 3 : 2,
       },
       enforceHttps: true,
       nodeToNodeEncryption: true,
@@ -352,7 +352,7 @@ export class InfraStack extends cdk.Stack {
     this.ecsCluster = new ecs.Cluster(this, 'EcsCluster', {
       clusterName: `${prefix}-cluster`,
       vpc: this.vpc,
-      containerInsights: true,
+      containerInsightsV2: ecs.ContainerInsights.ENABLED,
       enableFargateCapacityProviders: true,
     });
 

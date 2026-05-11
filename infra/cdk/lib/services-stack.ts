@@ -91,8 +91,7 @@ export class ServicesStack extends cdk.Stack {
       });
       this.ecrRepos[svc] = repo;
 
-      // Allow ECS execution role to pull images
-      repo.grantPull(ecsExecutionRole);
+      // ECR pull is already covered by AmazonECSTaskExecutionRolePolicy on ecsExecutionRole
     }
 
     // =========================================================================

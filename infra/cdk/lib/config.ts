@@ -6,20 +6,20 @@ export interface EnvConfig {
 }
 
 export const devConfig: EnvConfig = {
-  account: process.env.CDK_DEFAULT_ACCOUNT!,
-  region: process.env.CDK_DEFAULT_REGION ?? 'us-east-1',
+  account: '319125696988',
+  region: 'us-east-1',
   environment: 'dev',
 };
 
 export const stagingConfig: EnvConfig = {
-  account: process.env.CDK_DEFAULT_ACCOUNT!,
-  region: process.env.CDK_DEFAULT_REGION ?? 'us-east-1',
+  account: '319125696988',
+  region: 'us-east-1',
   environment: 'staging',
 };
 
 export const prodConfig: EnvConfig = {
-  account: process.env.CDK_DEFAULT_ACCOUNT!,
-  region: process.env.CDK_DEFAULT_REGION ?? 'us-east-1',
+  account: '319125696988',
+  region: 'us-east-1',
   environment: 'prod',
   domainName: process.env.DOMAIN_NAME,
 };

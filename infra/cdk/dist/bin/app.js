@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+require("source-map-support/register");
+const cdk = require("aws-cdk-lib");
+const ecommerce_stack_1 = require("../lib/ecommerce-stack");
+const config_1 = require("../lib/config");
+const app = new cdk.App();
+const config = config_1.devConfig;
+new ecommerce_stack_1.ECommerceStack(app, 'ECommerceStack', {
+    env: { account: config.account, region: config.region },
+    config,
+    stackName: `ecommerce-${config.environment}`,
+    description: 'ECommerce platform — VPC, RDS, ElastiCache, MQ, OpenSearch, ECS Fargate',
+    tags: { Project: 'ECommerce', Environment: config.environment, ManagedBy: 'CDK' },
+});
+app.synth();
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXBwLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vYmluL2FwcC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFDQSx1Q0FBcUM7QUFDckMsbUNBQW1DO0FBQ25DLDREQUF3RDtBQUN4RCwwQ0FBMEM7QUFFMUMsTUFBTSxHQUFHLEdBQUcsSUFBSSxHQUFHLENBQUMsR0FBRyxFQUFFLENBQUM7QUFDMUIsTUFBTSxNQUFNLEdBQUcsa0JBQVMsQ0FBQztBQUV6QixJQUFJLGdDQUFjLENBQUMsR0FBRyxFQUFFLGdCQUFnQixFQUFFO0lBQ3hDLEdBQUcsRUFBRSxFQUFFLE9BQU8sRUFBRSxNQUFNLENBQUMsT0FBTyxFQUFFLE1BQU0sRUFBRSxNQUFNLENBQUMsTUFBTSxFQUFFO0lBQ3ZELE1BQU07SUFDTixTQUFTLEVBQUUsYUFBYSxNQUFNLENBQUMsV0FBVyxFQUFFO0lBQzVDLFdBQVcsRUFBRSx5RUFBeUU7SUFDdEYsSUFBSSxFQUFFLEVBQUUsT0FBTyxFQUFFLFdBQVcsRUFBRSxXQUFXLEVBQUUsTUFBTSxDQUFDLFdBQVcsRUFBRSxTQUFTLEVBQUUsS0FBSyxFQUFFO0NBQ2xGLENBQUMsQ0FBQztBQUVILEdBQUcsQ0FBQyxLQUFLLEVBQUUsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIiMhL3Vzci9iaW4vZW52IG5vZGVcbmltcG9ydCAnc291cmNlLW1hcC1zdXBwb3J0L3JlZ2lzdGVyJztcbmltcG9ydCAqIGFzIGNkayBmcm9tICdhd3MtY2RrLWxpYic7XG5pbXBvcnQgeyBFQ29tbWVyY2VTdGFjayB9IGZyb20gJy4uL2xpYi9lY29tbWVyY2Utc3RhY2snO1xuaW1wb3J0IHsgZGV2Q29uZmlnIH0gZnJvbSAnLi4vbGliL2NvbmZpZyc7XG5cbmNvbnN0IGFwcCA9IG5ldyBjZGsuQXBwKCk7XG5jb25zdCBjb25maWcgPSBkZXZDb25maWc7XG5cbm5ldyBFQ29tbWVyY2VTdGFjayhhcHAsICdFQ29tbWVyY2VTdGFjaycsIHtcbiAgZW52OiB7IGFjY291bnQ6IGNvbmZpZy5hY2NvdW50LCByZWdpb246IGNvbmZpZy5yZWdpb24gfSxcbiAgY29uZmlnLFxuICBzdGFja05hbWU6IGBlY29tbWVyY2UtJHtjb25maWcuZW52aXJvbm1lbnR9YCxcbiAgZGVzY3JpcHRpb246ICdFQ29tbWVyY2UgcGxhdGZvcm0g4oCUIFZQQywgUkRTLCBFbGFzdGlDYWNoZSwgTVEsIE9wZW5TZWFyY2gsIEVDUyBGYXJnYXRlJyxcbiAgdGFnczogeyBQcm9qZWN0OiAnRUNvbW1lcmNlJywgRW52aXJvbm1lbnQ6IGNvbmZpZy5lbnZpcm9ubWVudCwgTWFuYWdlZEJ5OiAnQ0RLJyB9LFxufSk7XG5cbmFwcC5zeW50aCgpO1xuIl19

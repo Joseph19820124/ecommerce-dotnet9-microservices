@@ -1,0 +1,36 @@
+{
+  "version": "53.0.0",
+  "files": {
+    "56f7467bbde8a5efebcf57ae9e460027607099bab9f844669dcf5d800172ee5a": {
+      "displayName": "AWS679f53fac002430cb0da5b7982bd2287/Code",
+      "source": {
+        "path": "asset.56f7467bbde8a5efebcf57ae9e460027607099bab9f844669dcf5d800172ee5a",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "319125696988-us-east-1-612e3256": {
+          "bucketName": "cdk-hnb659fds-assets-319125696988-us-east-1",
+          "objectKey": "56f7467bbde8a5efebcf57ae9e460027607099bab9f844669dcf5d800172ee5a.zip",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::319125696988:role/cdk-hnb659fds-file-publishing-role-319125696988-us-east-1"
+        }
+      }
+    },
+    "4d7f0bf887ab93c77631710ee2049896250076b648af9275236dd97dd8d37e03": {
+      "displayName": "ecommerce-dev Template",
+      "source": {
+        "path": "ECommerceStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "319125696988-us-east-1-8c76a83b": {
+          "bucketName": "cdk-hnb659fds-assets-319125696988-us-east-1",
+          "objectKey": "4d7f0bf887ab93c77631710ee2049896250076b648af9275236dd97dd8d37e03.json",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::319125696988:role/cdk-hnb659fds-file-publishing-role-319125696988-us-east-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}
